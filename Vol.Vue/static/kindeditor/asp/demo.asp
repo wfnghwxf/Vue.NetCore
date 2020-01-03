@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime : 2020-01-03 12:22:39
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\static\kindeditor\asp\demo.asp
+ -->
 <%@ CODEPAGE=65001 %>
 <%
 Option Explicit
@@ -50,9 +58,9 @@ End Function
 	</script>
 </head>
 <body>
-	<%=htmlData%>
+	<% = htmlData %>
 	<form name="example" method="post" action="demo.asp">
-		<textarea name="content1" style="width:700px;height:200px;visibility:hidden;"><%=htmlspecialchars(htmlData)%></textarea>
+		<textarea name="content1" style="width:700px;height:200px;visibility:hidden;"><%= htmlspecialchars(htmlData) %></textarea>
 		<br />
 		<input type="submit" name="button" value="提交内容" /> (提交快捷键: Ctrl + Enter)
 	</form>

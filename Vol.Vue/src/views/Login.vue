@@ -75,11 +75,9 @@ export default {
       window.open("https://github.com/cq-panda/Vue.NetCore");
     },
     login() {
-      if (this.userInfo.userName == "" || this.userInfo.userName.trim() == "")
-        return this.$Message.error("请输入用户名");
+      if (this.userInfo.userName == "" || this.userInfo.userName.trim() == "") { return this.$Message.error("请输入用户名"); }
 
-      if (this.userInfo.passWord == "" || this.userInfo.passWord.trim() == "")
-        return this.$Message.error("请输入密码");
+      if (this.userInfo.passWord == "" || this.userInfo.passWord.trim() == "") { return this.$Message.error("请输入密码"); }
 
       this.http
         .post(
@@ -100,7 +98,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="less" scoped>
 .tm-bg {
@@ -260,5 +257,3 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #878787;
 }
 </style>
-
-

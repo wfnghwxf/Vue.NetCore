@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-12-30 11:33:42
- * @LastEditTime : 2020-01-03 09:25:09
+ * @LastEditTime : 2020-01-03 12:08:54
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Vol.Vue\.eslintrc.js
@@ -38,6 +38,9 @@ module.exports = {
       "smart-tabs"
     ],
     "eqeqeq": ["off"],
+    "camelcase": [1, {"properties": "never"}],
+    "vue/no-parsing-error": [2, { "x-invalid-end-tag": false }],
+    "no-multi-str": "off", //不允许用\来让字符串换行
     "no-useless-escape":"off",
     "no-unused-vars":"off",
     "no-irregular-whitespace":"off",

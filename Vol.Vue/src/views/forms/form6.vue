@@ -114,16 +114,17 @@ export default {
     },
     httpTest1() {
       //不带提示
-      let url = "/api/test2019/GetMsg",
-        param = {};
+
+      let url = "/api/test2019/GetMsg";
+      let param = {};
       this.http.post(url, param).then(result => {
         this.$message.error(result);
       });
     },
     httpTest2() {
       //带默认提示
-      let url = "/api/test2019/delay",
-        param = {};
+      let url = "/api/test2019/delay";
+      let param = {};
       this.http.post(url, param, true).then(result => {
         this.$message.error(result);
       });
@@ -132,9 +133,9 @@ export default {
       //自定义提示
       //第三个参数loadText为是否显示加载提示，默认为false,不显示任何提示，如果设置为true默认加载提示文字为[正在处理中]，也可以自下定义显示的文字,http请求的代码位置:src->api->http.js
       //demo上
-      let url = "/api/test2019/delay",
-        param = {},
-        loadText = "这里参数可以自定文字";
+      let url = "/api/test2019/delay";
+      let param = {};
+      let loadText = "这里参数可以自定文字";
       this.http.post(url, param, loadText).then(result => {
         this.$message.error(result);
       });

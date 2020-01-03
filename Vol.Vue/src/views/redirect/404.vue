@@ -11,11 +11,9 @@ export default {
   },
   data() {
     return {
-      errorNumber:'404',
+      errorNumber: '404',
       text: "抱歉，页面好像去火星了~"
     };
   }
 };
 </script>
-
-

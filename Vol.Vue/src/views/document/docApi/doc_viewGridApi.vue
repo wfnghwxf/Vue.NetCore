@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       viewCode: false,
-      sourceCode:[`<div class="cnblogs_code">
+      sourceCode: [`<div class="cnblogs_code">
 <pre>&lt;template&gt;
     &lt;div&gt;
         &lt;view-grid :columns="columns"<span style="color: #000000;">
@@ -171,7 +171,7 @@ export default {
     export </span><span style="color: #0000ff;">default</span><span style="color: #000000;"> vueParam;
 </span>&lt;/script&gt;</pre>
 </div>
-<p>&nbsp;</p>`,`<div class="cnblogs_code">
+<p>&nbsp;</p>`, `<div class="cnblogs_code">
 <pre>import extendHeader from "./doc_viewGirdHeader.vue"<span style="color: #000000;">
 
 import extendModelBodyHeader from </span>"./doc_viewGirdModelBody.vue"<span style="color: #000000;">
@@ -341,7 +341,7 @@ let extension </span>=<span style="color: #000000;"> {
 };
 export </span><span style="color: #0000ff;">default</span> extension;</pre>
 </div>
-<p>&nbsp;</p>`,`<div class="cnblogs_code">
+<p>&nbsp;</p>`, `<div class="cnblogs_code">
 <pre>&lt;template&gt;
   &lt;div&gt;
     &lt;Alert type="info"&gt;此处是对ViewGird组件Header扩展的doc_viewGirdHeader.vue组件，你可以在此处写任何你想写的代码&lt;/Alert&gt;
@@ -383,7 +383,7 @@ export </span><span style="color: #0000ff;">default</span><span style="color: #0
 };
 </span>&lt;/script&gt;</pre>
 </div>
-<p>&nbsp;</p>`,`<div class="cnblogs_code">
+<p>&nbsp;</p>`, `<div class="cnblogs_code">
 <pre>&lt;template&gt;
   &lt;div&gt;
     &lt;Alert type="error"&gt;
@@ -445,7 +445,7 @@ export </span><span style="color: #0000ff;">default</span><span style="color: #0
 }
 </span>&lt;/style&gt;</pre>
 </div>
-<p>&nbsp;</p>`,]
+<p>&nbsp;</p>`]
     };
   },
   methods: {}

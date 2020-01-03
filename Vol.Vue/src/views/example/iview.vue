@@ -5,15 +5,12 @@
   </div>
 </template>
 
-
 <script>
     import UploadExcel from "@/components/basic/UploadExcel.vue";
        import UploadImg from "@/components/basic/UploadImg.vue";
 export default {
-  components:{
-    UploadExcel,UploadImg
+  components: {
+    UploadExcel, UploadImg
   }
 }
 </script>
-
-

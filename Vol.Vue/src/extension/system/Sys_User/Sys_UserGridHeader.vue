@@ -19,9 +19,9 @@ export default {
     };
   },
   methods: {
-    open(msg){
-      this.success=msg;
-      this.model=true;
+    open(msg) {
+      this.success = msg;
+      this.model = true;
     }
   },
   created() {}

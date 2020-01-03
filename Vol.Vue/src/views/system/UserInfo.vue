@@ -336,5 +336,3 @@ img:not([src]) {
   }
 }
 </style>
-
-

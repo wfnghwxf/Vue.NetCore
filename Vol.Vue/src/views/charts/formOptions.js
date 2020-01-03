@@ -6,12 +6,13 @@ let formFileds1 = {
     AvgPrice: 8.88,
     Date: "",
     IsTop: "还没想好..."
-}
+};
+
 let formRules1 = [
     //两列的表单，formRules数据格式为:[[{},{}]]
     [
         {
-            link:true,
+            link: true,
             dataKey: "city",
             title: "城市",
             required: true,
@@ -74,7 +75,7 @@ let formRules1 = [
             type: "textarea"
         }
     ]
-]
+];
 
 let formFileds2 = {
     Variety: "一次性用品",
@@ -84,9 +85,9 @@ let formFileds2 = {
     Variety1: "",
     DateRange1: "2019-09-02",
     AvgPrice1: 7.72,
-    Address:"北京市海淀区001号",
+    Address: "北京市海淀区001号",
     IsChange: 1
-}
+};
 let formRules2 = [
     //两列的表单，formRules数据格式为:[[{},{}]]
     [
@@ -111,7 +112,7 @@ let formRules2 = [
         {
             title: "销售日期",
             field: "DateRange",
-            disabled: true,
+            disabled: true
         },
         {
             title: "销售价格",
@@ -122,7 +123,7 @@ let formRules2 = [
         {
             title: "生产日期",
             field: "DateRange1",
-            disabled: true,
+            disabled: true
         },
         {
             title: "中间价格",
@@ -133,16 +134,15 @@ let formRules2 = [
         {
             title: "销售地址",
             field: "Address",
-            disabled: true,
+            disabled: true
         },
         {
             title: "是否成交",
             field: "IsChange",
-            dataKey: "enable",//这里设置了数据字典源的编号会自动从后台加载数据源的key/value
+            dataKey: "enable", //这里设置了数据字典源的编号会自动从后台加载数据源的key/value
             data: [],
             disabled: true
         }]
-]
+];
 
-
-export { formFileds1, formRules1, formFileds2, formRules2 }
+export { formFileds1, formRules1, formFileds2, formRules2 };

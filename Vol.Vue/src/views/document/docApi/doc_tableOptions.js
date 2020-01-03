@@ -1,5 +1,5 @@
 let editTable = {
-    data: [  //表数据
+    data: [ //表数据
         {
             ExpertId: 276,
             NotNull: "还没想好",
@@ -12,7 +12,7 @@ let editTable = {
             BindKeyValue: "1",
             Enable: 1,
             ReallyName: "七秒的记忆",
-            filetest: "https://imgs-1256993465.cos.ap-chengdu.myqcloud.com/github/wordtest.docx",//也是设置为api服务器的文件，地址如：static/20191206/xx.xlsx
+            filetest: "https://imgs-1256993465.cos.ap-chengdu.myqcloud.com/github/wordtest.docx", //也是设置为api服务器的文件，地址如：static/20191206/xx.xlsx
             CreateDate: "2018-09-18 17:45:54"
         },
         {
@@ -133,7 +133,7 @@ let editTable = {
             edit: { type: "datetime" }
         }
     ]
-}
+};
 
 let remoteColumns = [
     //表配置
@@ -189,5 +189,6 @@ let remoteColumns = [
             return "<a>点我</a>";
         }
     }
-]
-export { editTable, remoteColumns }
+];
+
+export { editTable, remoteColumns };

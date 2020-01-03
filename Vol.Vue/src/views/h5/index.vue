@@ -5,7 +5,7 @@
       <router-view></router-view>
     </div>
     <div class="footer">
-      <a :class="{active:activeIndex==index}" 
+      <a :class="{active:activeIndex==index}"
       @click="redirect(item,index)"
       class="item" v-for="(item,index) in menu" :key="index">
         <Icon :type="item.icon" />
@@ -20,7 +20,7 @@
 export default {
   data() {
     return {
-      activeIndex:0,
+      activeIndex: 0,
       menu: [
         { name: "首 页", path: "/app/home", icon: "ios-home" },
         { name: "话 题", path: "/app/topic", icon: "ios-cart" },
@@ -28,10 +28,11 @@ export default {
         { name: "我 的", path: "/app/my", icon: "ios-contacts" }
       ]
     };
-  },methods:{
-    redirect(item,index){
-      this.activeIndex=index;
-         this.$router.push({ path:this.menu[this.activeIndex].path });
+  },
+methods: {
+    redirect(item, index) {
+      this.activeIndex = index;
+         this.$router.push({ path: this.menu[this.activeIndex].path });
     }
   }
 };

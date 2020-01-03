@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 11:14:59
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\views\charts\chart.vue
+ -->
 <template>
   <div>
     <div class="m-charts">
@@ -16,8 +24,8 @@
   </div>
 </template>
 <script>
+import options from './chartOptions';
 let echarts = require("echarts");
-import options from './chartOptions'
 export default {
   mounted() {
     let $bar = echarts.init(document.getElementById(this.bar));
@@ -33,7 +41,7 @@ export default {
       pie: "p-" + ~~(Math.random(10000, 100000) * 100000),
       line: "l-" + ~~(Math.random(10000, 100000) * 100000),
       heigth: document.documentElement.clientHeight - 190,
-     options:options
+     options: options
     };
   }
 };

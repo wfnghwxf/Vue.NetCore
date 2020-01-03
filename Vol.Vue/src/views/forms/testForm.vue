@@ -168,4 +168,3 @@ export default {
   top: 32px !important;
 }
 </style>
-

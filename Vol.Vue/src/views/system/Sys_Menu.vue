@@ -84,7 +84,7 @@
 import VolForm from "@/components/basic/VolForm.vue";
 import VolBox from "@/components/basic/VolBox.vue";
 import Icons from "@/components/basic/Icons.vue";
-import { fail } from "assert";
+//import { fail } from "assert";
 export default {
   components: {
     VolForm: VolForm,
@@ -483,10 +483,8 @@ export default {
 }
 </style>
 
-
 <style  scoped>
 .menu-left >>> .ivu-menu {
   width: 200px !important;
 }
 </style>
-

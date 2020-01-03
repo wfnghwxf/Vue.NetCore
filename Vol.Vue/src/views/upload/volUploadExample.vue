@@ -132,7 +132,7 @@ export default {
             file.path +
             file.name,
           file.name,
-          {"":this.http}
+          {"": this.http}
         );
         return;
       }

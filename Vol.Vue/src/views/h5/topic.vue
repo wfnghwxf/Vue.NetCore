@@ -11,7 +11,7 @@
 import Topic from "@/../src/components/Community/question.vue";
 export default {
   components: { Topic: Topic },
-  data(){
+  data() {
       return {}
   }
 }

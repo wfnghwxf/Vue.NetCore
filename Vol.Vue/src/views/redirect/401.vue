@@ -11,7 +11,7 @@ export default {
   },
   data() {
     return {
-      errorNumber:'401',
+      errorNumber: '401',
       text: "抱歉，您没有权限进行此操作~"
     };
   }

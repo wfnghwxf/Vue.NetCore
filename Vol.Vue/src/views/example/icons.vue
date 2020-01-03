@@ -10,17 +10,16 @@
 export default {
   props:
     {
-     "onSelect":{
-       type:Function,
-       default:()=>{
+     "onSelect": {
+       type: Function,
+       default: () => {
          return '';
        }
      }
-    }
-  ,
+    },
   methods: {
     select(index) {
-      this.onSelect(index<=0?'':this.icons[index]);
+      this.onSelect(index <= 0 ? '' : this.icons[index]);
       this.selectIndex = index;
     }
   },
@@ -861,7 +860,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="less" scoped>
 .icons-item {

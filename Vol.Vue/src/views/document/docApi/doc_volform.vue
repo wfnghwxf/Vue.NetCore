@@ -51,8 +51,8 @@ export default {
         IsTop: "",
         Fruits: [],
         Other: "",
-        extra1:"添加其他标签",
-        extra2:"添加其他标签可点击",
+        extra1: "添加其他标签",
+        extra2: "添加其他标签可点击",
         Switch: 1,
         SelectList: ["北京市", "上海市", "天津市", "广州市", "重庆市"],
         readonlyText: "还没想好....",
@@ -153,7 +153,7 @@ export default {
             type: "text",
             extra: {
               icon: "ios-search", //显示图标
-              text: "点击可触发事件",//显示文本
+              text: "点击可触发事件", //显示文本
               //触发事件
               click: item => {
                 this.$Message.error("点击标签触发的事件");

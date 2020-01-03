@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 12:03:15
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\views\forms\form4.vue
+ -->
 <template>
   <div class="v-table" style="padding: 30px 100px;">
     <Alert type="success" show-icon>Table+表单：由table.vue与form3.vue两个组件引用到此页面</Alert>
@@ -12,7 +20,7 @@
   </div>
 </template>
 <script>
-import form3 from "./form3"; 
+import form3 from "./form3";
 import vtable from "./table";
 export default {
   components: { form3, vtable },
@@ -21,7 +29,8 @@ export default {
       this.$message.error(JSON.stringify(this.$refs.form3.formFileds));
     },
     getRow() {
-     let rows=this.$refs.table.getRows();
+     let rows = this.$refs.table.getRows();
+     return rows;
     }
   },
   data() {

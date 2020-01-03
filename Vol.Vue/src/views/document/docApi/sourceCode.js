@@ -539,7 +539,8 @@ let codeString = {
   export </span><span style="color: #0000ff;">default</span><span style="color: #000000;"> doc_options;
   </span>&lt;/script&gt;</pre>
   </div>
-  <p>&nbsp;</p>`, btnedittable: `<div class="cnblogs_code">
+  <p>&nbsp;</p>`,
+btnedittable: `<div class="cnblogs_code">
   <pre>&lt;template&gt;
     &lt;div&gt;
       &lt;VolHeader icon="md-apps" text="使用button编辑"&gt;
@@ -947,6 +948,9 @@ let codeString = {
   </span>&lt;/style&gt;</pre>
   </div>
   <p>&nbsp;</p>`,
-  uploadExcel: ``, uploadImg: ``, volmenu: ``, viewGrid: ``
-}
-export default codeString
+  uploadExcel: ``,
+  uploadImg: ``,
+  volmenu: ``,
+  viewGrid: ``
+};
+export default codeString;

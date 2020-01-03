@@ -22,7 +22,7 @@
     <br/>  <br/>
     <br/>
   </div>
-  
+
 </template>
 <script>
 import VolTable from "@/components/basic/VolTable.vue";

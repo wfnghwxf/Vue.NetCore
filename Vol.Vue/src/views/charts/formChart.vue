@@ -38,7 +38,6 @@
 <script>
 import VolHeader from "@/components/basic/VolHeader.vue";
 import VolForm from "@/components/basic/VolForm.vue";
-let echarts = require("echarts");
 import options from "./chartOptions";
 import {
   formFileds1,
@@ -46,6 +45,7 @@ import {
   formFileds2,
   formRules2
 } from "./formOptions";
+let echarts = require("echarts");
 export default {
   components: { VolForm, VolHeader },
   data() {

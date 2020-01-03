@@ -150,8 +150,8 @@ export default {
           sortable: true,
           extra: {
             icon: "ios-search", //图标
-            text: "点击事件",//显示文本
-            style: "line-height: 31px;margin-left: 3px;",//自定义样式
+            text: "点击事件", //显示文本
+            style: "line-height: 31px;margin-left: 3px;", //自定义样式
             //column列配置, row数据, tableData整个table的数据源
             click: (column, row, tableData) => {
               //  this.getRows();
@@ -285,7 +285,7 @@ export default {
             title: "测试2",
             require: true,
             edit: { type: "select" },
-            onChange:(column,row,tableData)=>{
+            onChange: (column, row, tableData) => {
              this.$Message.error(row["test2"]);
             },
             bind: {

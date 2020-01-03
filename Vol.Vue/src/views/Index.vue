@@ -175,7 +175,6 @@ export default {
       this.navigation.forEach((item, index) => {
         if (item.id == id) {
           _index = index;
-          return;
         }
       });
       if (_index == -1) {
@@ -218,15 +217,7 @@ export default {
       $vueIndex.selectId = treeId;
     },
     showTime() {
-      var week = new Array(
-        "星期一",
-        "星期二",
-        "星期三",
-        "星期四",
-        "星期五",
-        "星期六",
-        "星期日"
-      );
+      var week = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];
       var date = new Date();
       var year = date.getFullYear();
       var month = date.getMonth() + 1;
@@ -530,14 +521,14 @@ img:not([src]) {
   width: 10px;
   height: 7px;
   background-color: transparent;
-} 
+}
 *::-webkit-scrollbar-track {
   background-color: #f0f6ff;
-} 
+}
 *::-webkit-scrollbar-thumb {
   background-color: #73abb1;
   border-radius: 3px;
-} 
+}
 .scrollbarHide::-webkit-scrollbar {
   display: none;
 }

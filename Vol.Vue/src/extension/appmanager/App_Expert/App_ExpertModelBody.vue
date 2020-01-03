@@ -3,7 +3,7 @@
     padding-top: 20px;
     margin-bottom: 10px;">
     <VolForm ref="myform" :formFileds="formFileds" :formRules="formRules"></VolForm>
-   
+
   </div>
 </template>
 <script>

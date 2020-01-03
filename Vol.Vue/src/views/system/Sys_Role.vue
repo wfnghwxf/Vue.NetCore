@@ -1,4 +1,12 @@
 <!--
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 12:16:19
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\views\system\Sys_Role.vue
+ -->
+<!--
 *Author：jxx
  *Contact：283591387@qq.com
  *代码由框架生成,任何更改都可能导致被代码生成器覆盖
@@ -36,33 +44,33 @@
                     sortName: "Role_Id"
                 },
                 extend: extend,
-                editFormFileds: {"ParentId":"","RoleName":"","DeptName":"","Enable":"","Creator":"","CreateDate":"","Modifier":"","ModifyDate":""},
-                editFormOptions: [[{"title":"父级ID","required":true,"field":"ParentId","type":"number"},
-                               {"title":"角色名称","required":true,"field":"RoleName"}],
-                              [{"title":"部门名称","field":"DeptName"},
-                               {"dataKey":"enable","title":"是否启用","field":"Enable","type":"switch"}],
-                              [{"title":"创建人","field":"Creator","disabled":true},
-                               {"title":"创建时间","field":"CreateDate","disabled":true,"type":"datetime"}],
-                              [{"title":"修改人","field":"Modifier","disabled":true},
-                               {"title":"修改时间","field":"ModifyDate","disabled":true}]],
-                searchFormFileds: {"RoleName":"","DeptName":"","Enable":"","CreateDate":"","ModifyDate":""},
-                searchFormOptions: [[{"title":"角色名称","field":"RoleName","type":"text"},{"title":"部门名称","field":"DeptName","type":"text"},{"dataKey":"enable","title":"是否启用","field":"Enable","type":"select"}],[{"title":"创建时间","field":"CreateDate","type":"datetime"},{"title":"修改时间","field":"ModifyDate","type":"datetime"}]],
-                columns: [{field:'Role_Id',title:'角色ID',type:'int',width:70,readonly:true,require:true,align:'left',sortable:true},
-                       {field:'ParentId',title:'父级ID',type:'int',width:70,require:true,align:'left'},
-                       {field:'RoleName',title:'角色名称',type:'string',link:true,width:90,require:true,align:'left'},
-                       {field:'Dept_Id',title:'部门ID',type:'int',width:90,hidden:true,align:'left'},
-                       {field:'DeptName',title:'部门名称',type:'string',width:90,align:'left'},
-                       {field:'Enable',title:'是否启用',type:'byte',bind:{ key:'enable',data:[]},width:90,align:'left'},
-                       {field:'OrderNo',title:'排序',type:'int',width:90,hidden:true,align:'left'},
-                       {field:'Creator',title:'创建人',type:'string',width:130,readonly:true,align:'left'},
-                       {field:'CreateDate',title:'创建时间',type:'datetime',width:90,readonly:true,align:'left',sortable:true},
-                       {field:'Modifier',title:'修改人',type:'string',width:130,readonly:true,align:'left'},
-                       {field:'ModifyDate',title:'修改时间',type:'datetime',width:90,readonly:true,align:'left',sortable:true}],
+                editFormFileds: {"ParentId": "", "RoleName": "", "DeptName": "", "Enable": "", "Creator": "", "CreateDate": "", "Modifier": "", "ModifyDate": ""},
+                editFormOptions: [[{"title": "父级ID", "required": true, "field": "ParentId", "type": "number"},
+                               {"title": "角色名称", "required": true, "field": "RoleName"}],
+                              [{"title": "部门名称", "field": "DeptName"},
+                               {"dataKey": "enable", "title": "是否启用", "field": "Enable", "type": "switch"}],
+                              [{"title": "创建人", "field": "Creator", "disabled": true},
+                               {"title": "创建时间", "field": "CreateDate", "disabled": true, "type": "datetime"}],
+                              [{"title": "修改人", "field": "Modifier", "disabled": true},
+                               {"title": "修改时间", "field": "ModifyDate", "disabled": true}]],
+                searchFormFileds: {"RoleName": "", "DeptName": "", "Enable": "", "CreateDate": "", "ModifyDate": ""},
+                searchFormOptions: [[{"title": "角色名称", "field": "RoleName", "type": "text"}, {"title": "部门名称", "field": "DeptName", "type": "text"}, {"dataKey": "enable", "title": "是否启用", "field": "Enable", "type": "select"}], [{"title": "创建时间", "field": "CreateDate", "type": "datetime"}, {"title": "修改时间", "field": "ModifyDate", "type": "datetime"}]],
+                columns: [{field: 'Role_Id', title: '角色ID', type: 'int', width: 70, readonly: true, require: true, align: 'left', sortable: true},
+                       {field: 'ParentId', title: '父级ID', type: 'int', width: 70, require: true, align: 'left'},
+                       {field: 'RoleName', title: '角色名称', type: 'string', link: true, width: 90, require: true, align: 'left'},
+                       {field: 'Dept_Id', title: '部门ID', type: 'int', width: 90, hidden: true, align: 'left'},
+                       {field: 'DeptName', title: '部门名称', type: 'string', width: 90, align: 'left'},
+                       {field: 'Enable', title: '是否启用', type: 'byte', bind: { key: 'enable', data: [] }, width: 90, align: 'left'},
+                       {field: 'OrderNo', title: '排序', type: 'int', width: 90, hidden: true, align: 'left'},
+                       {field: 'Creator', title: '创建人', type: 'string', width: 130, readonly: true, align: 'left'},
+                       {field: 'CreateDate', title: '创建时间', type: 'datetime', width: 90, readonly: true, align: 'left', sortable: true},
+                       {field: 'Modifier', title: '修改人', type: 'string', width: 130, readonly: true, align: 'left'},
+                       {field: 'ModifyDate', title: '修改时间', type: 'datetime', width: 90, readonly: true, align: 'left', sortable: true}],
                 detail: {
-                    cnName:"#detailCnName",
+                    cnName: "#detailCnName",
                     columns: [],
                     sortName: "",
-                    key:""
+                    key: ""
                 }
             };
         }

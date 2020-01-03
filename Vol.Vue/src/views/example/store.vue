@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 11:59:35
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\views\example\store.vue
+ -->
 <template>
   <div class="demo-page">
     <h2>Vue-nice-loading Demo</h2>
@@ -27,18 +35,18 @@ export default {
   data () {
     return {
       types: [
-        { type: 'audio', background: '#1ABC9C'},
-        { type: 'rings', background: '#34495E'},
-        { type: 'grid', background: '#F39C12'},
-        { type: 'hearts', background: '#9B59B6'},
-        { type: 'oval', background: '#3498DB'},
-        { type: 'three-dots', background: '#E74C3C'},
-        { type: 'spinning-circles', background: '#2ECC71'},
-        { type: 'puff', background: '#2C3E50'},
-        { type: 'circles', background: '#F1C40F'},
-        { type: 'tail-spin', background: '#8E44AD'},
-        { type: 'bars', background: '#2980B9'},
-        { type: 'ball-triangle', background: '#E74C3C'}
+        { type: 'audio', background: '#1ABC9C' },
+        { type: 'rings', background: '#34495E' },
+        { type: 'grid', background: '#F39C12' },
+        { type: 'hearts', background: '#9B59B6' },
+        { type: 'oval', background: '#3498DB' },
+        { type: 'three-dots', background: '#E74C3C' },
+        { type: 'spinning-circles', background: '#2ECC71' },
+        { type: 'puff', background: '#2C3E50' },
+        { type: 'circles', background: '#F1C40F' },
+        { type: 'tail-spin', background: '#8E44AD' },
+        { type: 'bars', background: '#2980B9' },
+        { type: 'ball-triangle', background: '#E74C3C' }
       ]
     }
   },

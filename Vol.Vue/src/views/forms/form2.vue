@@ -48,10 +48,9 @@ export default {
             type: "select"
           },
           {
-           
             title: "品种",
             dataKey: "age",
-             placeholder:"此处数据源为手动绑定",
+             placeholder: "此处数据源为手动绑定",
             //如果这里绑定了data数据，后台不会加载此数据源
             data: [{ key: "1", value: "1" }, { key: "2", value: "2" }],
             required: false,
@@ -65,14 +64,14 @@ export default {
             title: "城市",
             required: true,
             field: "City",
-            data: [], 
+            data: [],
             type: "select"
-          }, 
+          },
           {
             type: "decimal",
             title: "成交均价",
             required: true,
-            placeholder:"你可以自己定义placeholder显示的文字",
+            placeholder: "你可以自己定义placeholder显示的文字",
             field: "AvgPrice"
           }
         ],
@@ -81,8 +80,8 @@ export default {
             title: "日期",
             required: true,
             field: "Date",
-            placeholder:"你可以设置colSize属性决定标签的长度，可选值12/8/6/4",
-            colSize: 8,//设置宽度为2/3
+            placeholder: "你可以设置colSize属性决定标签的长度，可选值12/8/6/4",
+            colSize: 8, //设置宽度为2/3
             type: "datetime"
           },
           {
@@ -90,7 +89,7 @@ export default {
             range: true, //设置为true可以选择开始与结束日期
             required: false,
             field: "DateRange",
-            colSize: 4,//设置宽度为1/3
+            colSize: 4, //设置宽度为1/3
             type: "date"
           }
         ],
@@ -98,7 +97,7 @@ export default {
           {
             dataKey: "top",
             title: "是否推荐价格",
-            data: [], 
+            data: [],
             required: true,
             field: "IsTop",
             colSize: 12, //设置12，此列占100%宽度

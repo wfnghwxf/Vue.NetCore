@@ -137,8 +137,10 @@ import VolHeader from "@/components/basic/VolHeader.vue";
 import docParamTable from "./doc_ParamTable.vue";
 import { editTable, remoteColumns } from "./doc_tableOptions.js";
 import sourceCode from "./sourceCode.js";
-let $doc_vue;
-let doc_options = {
+
+// eslint-disable-next-line no-unused-vars
+let $docVue;
+let docOptions = {
   data() {
     return {
       editTableOptions: {
@@ -160,6 +162,7 @@ let doc_options = {
         }
       },
       icon: "md-male",
+      // eslint-disable-next-line no-dupe-keys
       text: "主题名称",
 
       /////////////////////////button编辑配置///////////////////
@@ -254,7 +257,7 @@ let doc_options = {
       //单元格点击事亻
       return "<a>" + row[column.field] + "</a>";
     };
-    $doc_vue = this;
+    $docVue = this;
   },
   methods: {
     viewRow(row, column) {
@@ -302,5 +305,5 @@ let doc_options = {
     }
   }
 };
-export default doc_options;
+export default docOptions;
 </script>

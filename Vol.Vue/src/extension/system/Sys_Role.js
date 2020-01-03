@@ -1,4 +1,11 @@
-
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime : 2020-01-03 10:54:29
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\extension\system\Sys_Role.js
+ */
 
 let extension = {
     components: {//动态扩充组件或组件路径
@@ -11,7 +18,7 @@ let extension = {
         modelBody: '',
         modelFooter: ''
     },
-    buttons: [],//扩展的按钮
+    buttons: [], //扩展的按钮
     methods: {//事件扩展
         onInit() {
             this.columns.forEach(x => {
@@ -31,11 +38,12 @@ let extension = {
                         item.dataKey = "roles";
                         //item.data = [{ key:1,value:'超级管理员' }]
                     }
-                })
-            })
+                });
+            });
         },
         onInited() {
         }
     }
 };
+
 export default extension;

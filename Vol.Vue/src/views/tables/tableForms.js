@@ -7,8 +7,8 @@ let options = {
         AvgPrice: 8.88,
         Date: "",
         IsTop: "还没想好..."
-    }
-    , formRules1: [//表单配置
+    },
+     formRules1: [//表单配置
         [
             {
                 dataKey: "city",
@@ -104,5 +104,5 @@ let options = {
             type: "datetime"
         }]
     }
-}
+};
 export default options;

@@ -5,7 +5,7 @@
       <Col span="8">
         <FormItem prop="name" label="name1">
           <Col span="21">
-            <Input v-model="formValidate.name" placeholder="Enter your name"></Input>
+            <Input v-model="formValidate.name" placeholder="Enter your name"/>
           </Col>
         </FormItem>
       </Col>
@@ -14,7 +14,7 @@
           <Col span="21">
             <Input v-model="formValidate.name" placeholder="Enter your name"></Input>
           </Col>
-        </FormItem>  
+        </FormItem>
       </Col>
       <Col span="8">
         <FormItem prop="name" label="name3">
@@ -209,7 +209,6 @@ export default {
   },
   methods: {
     handleSubmit(name) {
-  
       this.$refs[name].validate(valid => {
         if (valid) {
           this.$Message.success("Success!");
@@ -229,4 +228,3 @@ export default {
   top: 32px !important;
 }
 </style>
-

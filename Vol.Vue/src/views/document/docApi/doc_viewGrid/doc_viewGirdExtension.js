@@ -1,17 +1,17 @@
 
-import extendHeader from "./doc_viewGirdHeader.vue"
+import extendHeader from "./doc_viewGirdHeader.vue";
 
-import extendModelBodyHeader from "./doc_viewGirdModelBody.vue"
+import extendModelBodyHeader from "./doc_viewGirdModelBody.vue";
 let extension = {
     components: {//动态扩充组件或组件路径
-        gridHeader: extendHeader,//自定义扩展查询界面header部份
-        gridBody: "",//扩展同上
-        gridFooter: "",//扩展同上
-        modelHeader: '',//扩展同上
-        modelBody: extendModelBodyHeader,//自定义扩展弹出框界面body部份
+        gridHeader: extendHeader, //自定义扩展查询界面header部份
+        gridBody: "", //扩展同上
+        gridFooter: "", //扩展同上
+        modelHeader: '', //扩展同上
+        modelBody: extendModelBodyHeader, //自定义扩展弹出框界面body部份
         modelFooter: ''//扩展同上
     },
-    tableAction:'SellOrder',//设置获取指定表的权限按钮
+    tableAction: 'SellOrder', //设置获取指定表的权限按钮
     text: "此处为主从表扩展示例,doc_viewGird.vue与doc_viewGirdExtension.js可由代码生成,其他两个文件自己写的扩展", //查询界面文字描述
     buttons: { //扩展的按钮
         //查询界面的按钮
@@ -21,7 +21,7 @@ let extension = {
             value: 'Edit',
             class: '',
             type: 'success',
-            index: 1,//显示的位置
+            index: 1, //显示的位置
             onClick: function () {
                 this.$refs.gridHeader.model = true;
                 // this.$message.error("扩展的明细Box按钮,可设置index值指定显示位置,可使用this.$refs拿到包括自定义扩展的所有组件");
@@ -76,13 +76,12 @@ let extension = {
                     icon: 'md-create',
                     value: 'Edit',
                     type: 'success',
-                    index: 1,//显示的位置
+                    index: 1, //显示的位置
                     onClick: function () {
                         this.$message.error("通过onInit扩展出来的按钮");
                     }
                 }
-            )
-
+            );
         },
         onInited() {
             //弹出框按钮
@@ -96,7 +95,7 @@ let extension = {
                     onClick: function () {
                         this.$refs.modelBody.bodyModel = true;
                     }
-                })
+                });
             //弹出框明细表的按钮
             this.detailOptions.buttons.push(
                 {
@@ -108,35 +107,35 @@ let extension = {
                     onClick: function () {
                         this.$message.error("onInited出来的明细button");
                     }
-                })
+                });
             //给单元格添加事件及格式数据、自定颜色
             this.columns.forEach(x => {
                 //自定有数据源的颜色
                 if (x.field == "OrderType") {
-                    x.getColor = "#E91E63;"
+                    x.getColor = "#E91E63;";
                 }
                 if (x.field == 'Qty') {
                     //添加事件
                     x.click = (row, column, event) => {
-                        this.$Message.error('这里是自己写的事件')
-                    }
+                        this.$Message.error('这里是自己写的事件');
+                    };
                     //格式化
                     x.formatter = (row) => {
                         return "<a>" + row.Qty + '(点我试试)' + "</a>";
-                    }
+                    };
                 }
 
                 if (x.field == 'Remark') {
                     //添加事件
                     x.click = (row, column, event) => {
                         this.$refs.gridHeader.model = true;
-                    }
+                    };
                     //格式化
                     x.formatter = (row) => {
                         return "<a>" + row.Remark + '(点击弹出框)' + "</a>";
-                    }
+                    };
                 }
-            })
+            });
         },
         //其他可以在此处定义的事件，全部事件可参照serviceFilter.js或SellOrder.js
         mounted() {
@@ -150,20 +149,20 @@ let extension = {
             console.log('表' + this.table.cnName + '触发loadTableAfter');
             return true;
         },
-        searchDetailBefore(param) {//查询从表表数据前,param查询参数
+        searchDetailBefore(param) { //查询从表表数据前,param查询参数
             console.log(this.detailOptions.cnName + '触发loadDetailTableBefore');
             return true;
         },
-        searchDetailAfter(param, data) {//查询从表后param查询参数,result回返查询的结果
+        searchDetailAfter(param, data) { //查询从表后param查询参数,result回返查询的结果
             console.log(this.detailOptions.cnName + '触发loadDetailTableAfter');
             return true;
         },
         delBefore(ids, rows) { //查询界面的表删除前 ids为删除的id数组,,rows删除的行
             return true;
         },
-        delAfter(result) {//查询界面的表删除后
+        delAfter(result) { //查询界面的表删除后
             return true;
-        },
+        }
     }
 };
 export default extension;

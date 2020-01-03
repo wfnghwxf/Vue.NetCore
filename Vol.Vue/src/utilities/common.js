@@ -1,6 +1,6 @@
 let base = {
     isPhone(val) {
-        return /^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(val)
+        return /^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(val);
     },
     isDecimal(val) {
         return /(^[\-0-9][0-9]*(.[0-9]+)?)$/.test(val);
@@ -39,7 +39,7 @@ let base = {
         if (!url || !ip) {
             return false;
         }
-        return url.indexOf(ip.replace('https://', '').replace('http://', '')) >= 0
+        return url.indexOf(ip.replace('https://', '').replace('http://', '')) >= 0;
     },
     getImgSrc(src, httpUrl) {
         if (this.isUrl(src)) {
@@ -53,7 +53,7 @@ let base = {
     previewImg(src, httpUrl) { //图片预览，目前只支持单图片预览
         if (src && !this.isUrl(src) && httpUrl) {
             if (src.substr(0, 1) == "/" && httpUrl.substr(httpUrl.length - 1, 1) == "/") {
-                src = src.substr(1)
+                src = src.substr(1);
             }
             src = (httpUrl + src);
         }
@@ -66,7 +66,7 @@ let base = {
             $mask.style.position = "absolute";
             $mask.style.width = "100%";
             $mask.style.height = "100%";
-            $mask.style.background = "black"
+            $mask.style.background = "black";
             $mask.style.opacity = "0.6";
             $div.appendChild($mask);
             $div.style.position = "fixed";
@@ -88,7 +88,7 @@ let base = {
             $div.appendChild($img);
             $div.addEventListener("click", function () {
                 this.style.display = "none";
-            })
+            });
             document.body.appendChild($div);
             return;
         }
@@ -101,7 +101,7 @@ let base = {
     //backGroundUrl 后台url，如果后台url直接从后台下载，其他全部通过点击a标签下载
     dowloadFile(url, fileName, header, backGroundUrl) {
         if (!url) {
-            alert('此文件没有url不能下载')
+            alert('此文件没有url不能下载');
             return;
         }
         let $element = document.getElementById('dowonloadfile-a');
@@ -109,7 +109,6 @@ let base = {
             $element = document.createElement('a');
             $element.setAttribute("id", "dowonloadfile-a");
             document.body.append($element);
-
         }
         //url为一个完整的地址，并且不是后台api的地址，直接点击a标签下载
         if (this.isUrl(url) && !this.matchUrlIp(url, backGroundUrl)) {
@@ -120,11 +119,10 @@ let base = {
         //通过后台api服务器下载
         if (!this.isUrl(url)) {
             if (!this.isUrl(backGroundUrl + url)) {
-                alert('当前下载的文件url【' + url + '】不正确')
+                alert('当前下载的文件url【' + url + '】不正确');
                 return;
             }
             url = backGroundUrl + url;
-
         }
 
         let xmlResquest = new XMLHttpRequest();
@@ -142,7 +140,7 @@ let base = {
         xmlResquest.responseType = "blob";
         xmlResquest.onload = function (oEvent) {
             if (xmlResquest.status != 200) {
-                return alert('没有下载到此文件的信息')
+                return alert('没有下载到此文件的信息');
             }
             let content = xmlResquest.response;
             $element.download = fileName;
@@ -182,12 +180,12 @@ let base = {
         xmlResquest.onload = function () {
             if (this.status == 200) {
                 var blob = this.response;
+                // eslint-disable-next-line no-undef
                 callback(window.URL.createObjectURL(blob));
             }
         };
         xmlResquest.send();
     }
-}
+};
+
 export default base;
-
-

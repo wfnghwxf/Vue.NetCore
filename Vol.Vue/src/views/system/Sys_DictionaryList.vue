@@ -1,4 +1,12 @@
 <!--
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 12:15:18
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\views\system\Sys_DictionaryList.vue
+ -->
+<!--
 *Author：jxx
  *Contact：283591387@qq.com
  *代码由框架生成,任何更改都可能导致被代码生成器覆盖
@@ -36,29 +44,29 @@
                     sortName: "DicList_ID"
                 },
                 extend: extend,
-                editFormFileds: {"DicValue":"","DicName":"","OrderNo":"","Remark":"","Enable":""},
-                editFormOptions: [[{"columnType":"string","title":"数据源Value","field":"DicValue","type":"text"},
-                               {"columnType":"string","title":"数据源Text","field":"DicName","type":"text"},
-                               {"columnType":"int","title":"排序号","field":"OrderNo","type":"text"},
-                               {"columnType":"int","title":"备注","field":"Remark","type":"text"},
-                               {"columnType":"byte","dataKey":"enable","title":"是否可用","field":"Enable","type":"switch"}]],
+                editFormFileds: {"DicValue": "", "DicName": "", "OrderNo": "", "Remark": "", "Enable": ""},
+                editFormOptions: [[{"columnType": "string", "title": "数据源Value", "field": "DicValue", "type": "text"},
+                               {"columnType": "string", "title": "数据源Text", "field": "DicName", "type": "text"},
+                               {"columnType": "int", "title": "排序号", "field": "OrderNo", "type": "text"},
+                               {"columnType": "int", "title": "备注", "field": "Remark", "type": "text"},
+                               {"columnType": "byte", "dataKey": "enable", "title": "是否可用", "field": "Enable", "type": "switch"}]],
                 searchFormFileds: {},
                 searchFormOptions: [],
-                columns: [{field:'DicList_ID',title:'DicList_ID',type:'int',width:90,hidden:true,readonly:true,require:true,align:'left'},
-                       {field:'Dic_ID',title:'数据源ID',type:'int',width:90,readonly:true,align:'left',sortable:true},
-                       {field:'DicValue',title:'数据源Value',type:'string',width:90,align:'left'},
-                       {field:'DicName',title:'数据源Text',type:'string',width:90,align:'left'},
-                       {field:'OrderNo',title:'排序号',type:'int',width:90,align:'left'},
-                       {field:'Remark',title:'备注',type:'int',width:90,align:'left'},
-                       {field:'Enable',title:'是否可用',type:'byte',bind:{ key:'enable',data:[]},width:90,align:'left'},
-                       {field:'CreateID',title:'CreateID',type:'int',width:90,hidden:true,align:'left'},
-                       {field:'Creator',title:'创建人',type:'string',width:130,readonly:true,align:'left'},
-                       {field:'CreateDate',title:'创建时间',type:'datetime',width:90,readonly:true,align:'left',sortable:true},
-                       {field:'ModifyID',title:'ModifyID',type:'int',width:90,hidden:true,align:'left'},
-                       {field:'Modifier',title:'修改人',type:'string',width:130,align:'left'},
-                       {field:'ModifyDate',title:'修改时间',type:'datetime',width:90,align:'left',sortable:true}],
+                columns: [{field: 'DicList_ID', title: 'DicList_ID', type: 'int', width: 90, hidden: true, readonly: true, require: true, align: 'left'},
+                       {field: 'Dic_ID', title: '数据源ID', type: 'int', width: 90, readonly: true, align: 'left', sortable: true},
+                       {field: 'DicValue', title: '数据源Value', type: 'string', width: 90, align: 'left'},
+                       {field: 'DicName', title: '数据源Text', type: 'string', width: 90, align: 'left'},
+                       {field: 'OrderNo', title: '排序号', type: 'int', width: 90, align: 'left'},
+                       {field: 'Remark', title: '备注', type: 'int', width: 90, align: 'left'},
+                       {field: 'Enable', title: '是否可用', type: 'byte', bind: { key: 'enable', data: [] }, width: 90, align: 'left'},
+                       {field: 'CreateID', title: 'CreateID', type: 'int', width: 90, hidden: true, align: 'left'},
+                       {field: 'Creator', title: '创建人', type: 'string', width: 130, readonly: true, align: 'left'},
+                       {field: 'CreateDate', title: '创建时间', type: 'datetime', width: 90, readonly: true, align: 'left', sortable: true},
+                       {field: 'ModifyID', title: 'ModifyID', type: 'int', width: 90, hidden: true, align: 'left'},
+                       {field: 'Modifier', title: '修改人', type: 'string', width: 130, align: 'left'},
+                       {field: 'ModifyDate', title: '修改时间', type: 'datetime', width: 90, align: 'left', sortable: true}],
                 detail: {
-                    cnName:"#detailCnName",
+                    cnName: "#detailCnName",
                     columns: [],
                     sortName: "#detailSortName"
                 }

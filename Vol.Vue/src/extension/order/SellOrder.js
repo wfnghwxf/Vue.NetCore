@@ -17,16 +17,16 @@
 //serviceFilter.js
 //所的文件都最终会合并到ViewGrid.vue文件中
 
-
 let extension = {
     components: {//动态扩充组件或组件路径
         //表单header、content、footer对应位置扩充的组件
-        gridHeader: () => import("./SellOrderComponents/GridHeaderExtend.vue"),//{ template: "<div>扩展组xx件</div>" },
+        gridHeader: () => import("./SellOrderComponents/GridHeaderExtend.vue"), //{ template: "<div>扩展组xx件</div>" },
         gridBody: () => import("./SellOrderComponents/GridBodyExtend.vue"),
         gridFooter: () => import("./SellOrderComponents/GridFooterExtend.vue"),
         //弹出框(修改、编辑、查看)header、content、footer对应位置扩充的组件
         modelHeader: "",
         modelBody: {
+            // eslint-disable-next-line no-multi-str
             template: '<Alert style="background: white;" type="success" show-icon>\
          你可以在此modelBody扩展处添加业务相关内容 <template slot="desc">\
           <Steps :current="2" size="small">\
@@ -36,7 +36,7 @@ let extension = {
         <Step title="待进行"></Step>\
         </Steps></template>\
        </Alert>' },
-        modelFooter: () => import("./SellOrderComponents/ModelFooter.vue"),
+        modelFooter: () => import("./SellOrderComponents/ModelFooter.vue")
     },
     text: "示例覆盖全部可扩展方法,前台扩展文件SellOrder.js，后台Partial->SellOrdeService.cs",
     buttons: { //扩展按钮
@@ -48,7 +48,7 @@ let extension = {
                 value: 'Edit',
                 class: '',
                 type: 'error',
-                index: 1,//显示的位置
+                index: 1, //显示的位置
                 onClick: function () { //扩展按钮执行事件
                     //this可以获取所有属性，包括this.$refs.gridHeader/gridBody等获取扩展组件对象
                     // this.$message("测试扩展按钮");
@@ -60,7 +60,7 @@ let extension = {
                 value: 'Edit',
                 class: '',
                 type: 'error',
-                index: 1,//显示的位置
+                index: 1, //显示的位置
                 onClick: function () { //扩展按钮执行事件
                     this.getServiceDate();
                 }
@@ -73,7 +73,7 @@ let extension = {
                     value: 'Edit',
                     class: '',
                     type: 'success',
-                    index: 1,//显示的位置
+                    index: 1, //显示的位置
                     onClick: function () {
                         this.$message.error("扩展的明细Box按钮,可设置index值指定显示位置,可使用this.$refs拿到包括自定义扩展的所有组件");
                     }
@@ -86,20 +86,20 @@ let extension = {
                     value: 'Edit',
                     class: '',
                     type: 'success',
-                    index: 1,//显示的位置
+                    index: 1, //显示的位置
                     onClick: function () {
                         this.$message.error("扩展的明细table按钮,可设置index值指定显示位置");
                     }
                 }]
-    },//扩展的按钮
+    }, //扩展的按钮
     methods: {//方法扩展
         getServiceDate() {
             this.http.post("/api/SellOrder/getServiceDate", {}, '正在调用后台数据').then(date => {
                 this.$message.error("从后台获取的服务器时间是：" + date);
-            })
+            });
         },
         mounted() {
-          
+
            // this.$Notice.success({ title: '执行mounted方法' });
         },
         onInit() {
@@ -121,18 +121,18 @@ let extension = {
             this.columns.forEach(x => {
                 if (x.field == "Qty") {
                     x.formatter = (row) => {
-                        return '<a>' + row.Qty + "(弹出框)" + '</a>'
-                    }
+                        return '<a>' + row.Qty + "(弹出框)" + '</a>';
+                    };
                     x.click = (row, column, event) => {
                         this.$refs.gridHeader.model = true;
-                    }
+                    };
                 }
-            })
+            });
 
             //动态设置弹出框table的高度
             this.detailOptions.height = 110;
             //动态设置查询界面table高度
-            this.tableHeight = 200;;
+            this.tableHeight = 200;
             this.$Notice.success({ title: 'create方法执行时,你可以此处编写业务逻辑' });
         },
         onInited() {
@@ -148,57 +148,56 @@ let extension = {
             this.$Notice.success({ title: this.table.cnName + ',查询结果', desc: '返回的对象：' + JSON.stringify(result) });
             return true;
         },
-        searchDetailBefore(param) {//查询从表表数据前,param查询参数
+        searchDetailBefore(param) { //查询从表表数据前,param查询参数
             //  this.$Notice.success({ title: this.detailOptions.cnName + '查询前' });
             return true;
         },
-        searchDetailAfter(data) {//查询从表后param查询参数,result回返查询的结果
+        searchDetailAfter(data) { //查询从表后param查询参数,result回返查询的结果
             this.$Notice.success({ title: this.detailOptions.cnName + ',查询结果', desc: '返回的对象：' + JSON.stringify(data) });
             return true;
         },
         delBefore(ids, rows) { //查询界面的表删除前 ids为删除的id数组,rows删除的行
-            let auditStatus = rows.some(x => { return x.AuditStatus > 0 });
+            let auditStatus = rows.some(x => { return x.AuditStatus > 0; });
             if (auditStatus) {
-                this.$message.error('只能删除未审核的数据')
+                this.$message.error('只能删除未审核的数据');
                 return false;
             }
             this.$Notice.success({ title: '删除前，选择的Id:' + ids.join(',') });
             return true;
         },
-        delAfter(result) {//查询界面的表删除后
+        delAfter(result) { //查询界面的表删除后
             return true;
         },
         delDetailRow(rows) { //弹出框删除明细表的行数据(只是对table操作，并没有操作后台)
-            console.log(rows)
+            console.log(rows);
             return true;
         },
         addBefore(formData) { //新建保存前formData为对象，包括明细表
-
             this.$Notice.success({ title: this.detailOptions.cnName + '新建前：', desc: '提前的数据：' + JSON.stringify(formData) });
             return true;
         },
-        addAfter(result) {//新建保存后result返回的状态及表单对象
+        addAfter(result) { //新建保存后result返回的状态及表单对象
             this.$Notice.success({ title: this.detailOptions.cnName + '新建完成后：', desc: '返回的数据' + JSON.stringify(result) });
             return true;
         },
         updateBefore(formData) { //编辑保存前formData为对象，包括明细表、删除行的Id
             this.$Notice.success({ title: this.detailOptions.cnName + '编辑前：', desc: '提前的数据：' + JSON.stringify(formData) });
             //获取扩展的modelFooter属性text
-            console.log(this.$refs.modelFooter.text)
+            console.log(this.$refs.modelFooter.text);
             return true;
         },
-        updateAfter(result) {//编辑保存后result返回的状态及表单对象
+        updateAfter(result) { //编辑保存后result返回的状态及表单对象
             this.$Notice.success({ title: this.detailOptions.cnName + '编辑完成后：', desc: '返回的数据' + JSON.stringify(result) });
             return true;
         },
-        auditBefore(ids, rows) {//审核前
-            if (rows.length > 2) {//每次最多只能审核2条数据
+        auditBefore(ids, rows) { //审核前
+            if (rows.length > 2) { //每次最多只能审核2条数据
                 this.$message.error('最多只能选择两条数据');
                 return false;
             }
             return true;
         },
-        auditAfter(result, rows) {// 审核后
+        auditAfter(result, rows) { // 审核后
             if (result.status) {
                 result.message = "审核成功。。。。。" + result.message;
             }
@@ -216,9 +215,9 @@ let extension = {
         },
         resetUpdateFormBefore() { //重置编辑表单前的内容
             //this.editFormFileds当前值
-            console.log(this.editFormFileds)
+            console.log(this.editFormFileds);
             //当前明细表的行
-            console.log(this.$refs.detail.rowData)
+            console.log(this.$refs.detail.rowData);
             return true;
         },
         resetUpdateFormAfter() { //重置编辑表单后的内容
@@ -234,9 +233,9 @@ let extension = {
         modelOpenBefore(row) { //点击编辑/新建按钮弹出框前，可以在此处写逻辑，如，从后台获取数据
 
         },
-        modelOpenAfter(row) {  //点击编辑/新建按钮弹出框后，可以在此处写逻辑，如，从后台获取数据
+        modelOpenAfter(row) { //点击编辑/新建按钮弹出框后，可以在此处写逻辑，如，从后台获取数据
             this.$message.error("此处是打开弹出框后事件,当前操作：" + this.currentAction + "，你可以在此处编写逻辑，如，从后台获取数据");
-        },
+        }
     }
 };
 export default extension;

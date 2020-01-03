@@ -79,7 +79,7 @@ export default {
         ],
         [
           {
-           
+
             dataKey: "age", //后台下拉框对应的数据字典编号
             data: [], //loadKey设置为true,会根据dataKey从后台的下拉框数据源中自动加载数据
             //data是须的参数，可以默认一个[]
@@ -112,7 +112,6 @@ export default {
             field: "Variety",
             colSize: 12,
             dataKey: "pz",
-            data: [],
             type: "select"
           }
         ],

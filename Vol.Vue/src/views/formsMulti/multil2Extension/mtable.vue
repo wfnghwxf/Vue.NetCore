@@ -24,7 +24,7 @@
     <br />
     <br />
     <br />
-  
+
   </div>
 </template>
 <script>

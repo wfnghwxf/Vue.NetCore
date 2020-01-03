@@ -1,4 +1,11 @@
-
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime : 2020-01-03 10:55:00
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\extension\system\Sys_User.js
+ */
 
 let extension = {
     components: {//动态扩充组件或组件路径
@@ -11,14 +18,14 @@ let extension = {
         modelBody: '',
         modelFooter: ''
     },
-    text:"只能看到当前角色下的所有帐号",
-    buttons: [],//扩展的按钮
+    text: "只能看到当前角色下的所有帐号",
+    buttons: [], //扩展的按钮
     methods: {//事件扩展
         onInit() {
         },
         onInited() {
         },
-        addAfter(result) {//用户新建后，显示随机生成的密码
+        addAfter(result) { //用户新建后，显示随机生成的密码
             if (!result.status) {
                 return true;
             }
@@ -33,12 +40,11 @@ let extension = {
             this.editFormOptions.forEach(item => {
                 item.forEach(x => {
                     if (x.field == "UserName") {
-                        this.$set(x, "disabled", isEDIT)
+                        this.$set(x, "disabled", isEDIT);
                     }
-                })
-            })
+                });
+            });
         }
-
     }
 };
 export default extension;

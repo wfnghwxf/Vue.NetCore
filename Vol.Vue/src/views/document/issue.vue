@@ -106,7 +106,7 @@ export default {
               text: "Sell->Partial->SellOrderService.cs中有详细介绍"
             }
           ]
-        },{
+        }, {
           title: "实体校验、常用扩展、日志",
           desc: [
             {
@@ -120,14 +120,14 @@ export default {
               text: "UserContext.Current在Sell->Partial->SellOrderService.cs中有详细介绍"
             }
           ]
-        },{
+        }, {
           title: "前端获取用户信息/权限等",
           desc: [
             {
               text: "菜单->其他组件"
             }
           ]
-        },{
+        }, {
           title: "如何使用一对多",
           desc: [
             {
@@ -138,7 +138,7 @@ export default {
             },
               {
               text: "2、后台通过HttpContext.Request<T>(),拿到请求的数据进行业务处理(如：写入数据库中)，参照Sell->Partial->SellOrderService.cs中有介绍所有方法操作"
-            } ,
+            },
               {
               text: "使用一对多加载自定义表数据,如点击编辑弹出框时加载表数据：可以使用this.modelOpenAtfter，可参照SellOrder.js中有列出所有操作事件的方法，实际使用方式与上面介绍的一样,"
             }
@@ -151,7 +151,7 @@ export default {
               text: "数据库字段发生变化后，在代码生成器页面点击->【同步表结构->【生成model】->【生成vue页面】"
             }
           ]
-        },{
+        }, {
           title: "如何删除菜单配置",
           desc: [
             {
@@ -171,7 +171,7 @@ export default {
             },
              {
               text: "2、如果是代码生成器生成的页面也分配权限后还是提示权限，请检查代码生成器配置中的【真实表名】与菜单设置中的【视图/表名】是否一样"
-            },
+            }
           ]
         },
         {

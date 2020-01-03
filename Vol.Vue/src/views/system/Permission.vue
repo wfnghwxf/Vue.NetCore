@@ -212,7 +212,7 @@ export default {
   flex: 1;
   /* padding: 25px;
   border: 1px solid #eee; */
-  /* 
+  /*
   padding-top: 10px; */
 }
 .action-container .block {

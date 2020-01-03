@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 12:02:16
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\views\forms\form.vue
+ -->
 <template>
   <div>
     <Button @click="volBoxFrom" style="margin-left: 8px">弹出框带表单</Button>
@@ -12,23 +20,23 @@ import VolBoxForm from "@/components/basic/VolBoxForm.vue";
 var formParam = {
   components: {
     VolBoxForm
-  }, 
+  },
   methods: {
     volBoxFrom() {
-   
+
     },
     volBoxFromObject() {
-    
+
     }
   },
   created() {},
   data() {
     return {
-     
+
     };
   }
 };
+// eslint-disable-next-line no-undef
 extend(formParam);
 export default formParam;
 </script>
-

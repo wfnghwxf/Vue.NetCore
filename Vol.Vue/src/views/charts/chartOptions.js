@@ -1,4 +1,4 @@
-let options= {
+let options = {
     bar: {
       color: ["#3398DB"],
       tooltip: {
@@ -214,6 +214,6 @@ let options= {
         }
       ]
     }
-  }
+  };
 
   export default options;

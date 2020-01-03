@@ -1,12 +1,20 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime : 2020-01-03 11:00:35
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\extension\appmanager\App_Expert.js
+ */
 import test from "./App_Expert/App_ExpertModelBody.vue";
 let extension = {
     components: {//动态扩充组件或组件路径
         //表单header、content、footer对应位置扩充的组件
-        gridHeader: '',//{ template: "<div>扩展组xx件</div>" },
+        gridHeader: '', //{ template: "<div>扩展组xx件</div>" },
         gridBody: '',
         gridFooter: '',
         //弹出框(修改、编辑、查看)header、content、footer对应位置扩充的组件
-        modelHeader: test,//此处可以根据实际情况同步引用也可以异步引用() => import("./App_Expert/App_ExpertModelBody.vue"),
+        modelHeader: test, //此处可以根据实际情况同步引用也可以异步引用() => import("./App_Expert/App_ExpertModelBody.vue"),
         modelBody: '',
         modelFooter: ''
     },
@@ -20,13 +28,12 @@ let extension = {
                     value: 'Edit',
                     class: '',
                     type: 'success',
-                    index: 1,//显示的位置
+                    index: 1, //显示的位置
                     onClick: function () {
                         this.$refs.modelHeader.formFileds.test1 = "";
                         this.$refs.modelHeader.formFileds.test2 = "";
-                        this.$refs.modelHeader.formRules=[
-                            [
-                              {
+                        this.$refs.modelHeader.formRules = [
+                            [{
                                 columnType: "string",
                                 title: "test1",
                                 required: true,
@@ -34,23 +41,20 @@ let extension = {
                                 field: "test1",
                                 colSize: 12,
                                 type: "datetime"
-                              }
-                            ],
-                            [
-                              {
-                                   columnType: "string",
+                            }],
+                            [{
+                                columnType: "string",
                                 title: "test2",
                                 dataKey: "city",
-                                required:false ,
-                                field:"test2",
+                                required: false,
+                                field: "test2",
                                 colSize: 12,
                                 type: "datetime"
-                              }
-                            ]
-                          ]
+                            }]
+                        ];
                     }
-                }],
-    },//扩展的按钮
+                }]
+    }, //扩展的按钮
     methods: {//事件扩展
         onInit() {
             this.boxOptions.saveClose = false;
@@ -61,7 +65,7 @@ let extension = {
                 //    x.hidden = this.currentAction == this.const.ADD
                 }
                // if (x.name == '重 置') x.disabled = true;
-            })
+            });
         },
         modelOpenAfter(row) {
             if (this.$refs.modelBody) {
@@ -71,4 +75,5 @@ let extension = {
         }
     }
 };
+
 export default extension;

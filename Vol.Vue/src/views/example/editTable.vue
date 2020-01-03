@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime : 2020-01-03 11:58:46
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\views\example\editTable.vue
+ -->
 <template>
   <div style="padding:100px;">
     <Button type="info" @click="beginEdit">开始编辑</Button>
@@ -15,7 +23,6 @@
 import VolTable from "@/components/basic/VolTable.vue";
 export default {
   components: {
-
     VolTable: VolTable
   },
   methods: {
@@ -28,7 +35,7 @@ export default {
   },
   data() {
     return {
-              value:"1",
+              value: "1",
       columns: [
         {
           field: "columnName",
@@ -56,14 +63,14 @@ export default {
           width: 120,
           align: "left",
           editType: "select",
-          edit: { type: "switch", status: true, data: [{key:"1",value:"是"},{key:"0",value:"否"}], key: "" }
+          edit: { type: "switch", status: true, data: [{key: "1", value: "是"}, {key: "0", value: "否"}], key: "" }
         },
         {
           field: "createDate",
           title: "创建时间",
           width: 120,
           align: "left",
-          edit: { type: "date", status: false}
+          edit: { type: "date", status: false }
         }
       ],
       data: [

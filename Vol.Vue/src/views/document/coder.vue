@@ -23,7 +23,7 @@
     <p></p>
        <p class="desc" style="color:red;margin: 20px 0;" >主从(明细)表生成代码注意：明细表的外键必须是主表的主键字段，可参照SellOrder的明细表SellOrderList的外建，主从表代码生成步骤都是一样，在生成主表前需要先将从表按现有步骤生成(可以不用生成从表vue页面),然后主表生成配置页面填上【明细表名】与【明细表中文名】,点击生成vue页面、model、业务类即可完成主从页面代码的生成。</p>
     <h2>1、选择菜单：在线代生成器-&gt;Vue+后台代码生成</h2>
-   
+
     <div>
       <p class="desc">点击新建,弹出选择框，如果只是做修改跳过此步，直接修改页面配置后点保存，再点各种生成操作</p>
       <img src="https://imgs-1256993465.cos.ap-chengdu.myqcloud.com/doc/step1.png" />
@@ -122,7 +122,7 @@
             <span>表别名</span>
           </td>
           <td>
-            
+
             <span style="color:red;font-size:14px;">表别名：如果不想暴露真实表名，可以自行设置任何表别名，表别名将替代原表名生成的Model与业务类。一个表只能有一个别名，默认表名与别名相同，如果想使用别名，必须将已经生成过的文件删除</span>
           </td>
         </tr>
@@ -359,7 +359,7 @@
             <span>设置是否为主键，必须一个主键</span>
           </td>
         </tr>
-       
+
       </tbody>
     </table>
 

@@ -11,7 +11,7 @@
 import question from "@/../src/components/Community/index.vue";
 export default {
   components: { Question: question },
-  data(){
+  data() {
       return {}
   }
 }

@@ -15,8 +15,8 @@ let echarts = require("echarts");
 export default {
   data() {
     return {
-      pie:'p-'+~~(Math.random(10000,100000)*100000),
-      cli:'c-'+~~(Math.random(10000,100000)*100000),
+      pie: 'p-' + ~~(Math.random(10000, 100000) * 100000),
+      cli: 'c-' + ~~(Math.random(10000, 100000) * 100000),
       text: "测试。。。。。",
       value1: "1"
     };

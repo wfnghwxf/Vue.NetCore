@@ -83,7 +83,7 @@ export default {
       type: Boolean,
       default: true
     },
-    showCode:{
+    showCode: {
       type: Boolean,
       default: true
     }

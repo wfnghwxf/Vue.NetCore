@@ -345,8 +345,7 @@ export default {
         });
     },
     syncTable() {
-      if (!this.layOutOptins.fileds.tableName)
-        return this.$Message.error("请选模块");
+      if (!this.layOutOptins.fileds.tableName) { return this.$Message.error("请选模块"); }
       this.http
         .post(
           "/api/builder/syncTable?tableName=" +
@@ -585,5 +584,3 @@ export default {
   padding: 10px 53px 0px 40px;
 }
 </style>
-
-

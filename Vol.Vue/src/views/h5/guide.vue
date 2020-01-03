@@ -4,7 +4,7 @@
       <icon type="md-phone-portrait" />
       <span>移动H5开发及打包</span>
     </Divider>
-  <br>  <br> 
+  <br>  <br>
     <div class="guide">
       <div>
         <h3>安卓扫描下载</h3>

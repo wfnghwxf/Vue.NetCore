@@ -46,7 +46,7 @@ export default {
         { id: 9, name: "东莞", pid: 1 },
         { id: 10, name: "松山湖", pid: 9 }
       ],
-      tree: [
+      tree2: [
         {
           id: 1,
           label: "广东",
@@ -158,7 +158,7 @@ export default {
       actions: [{ text: "查询", value: "Search", checked: false }]
     };
     this.menuFn(0, root);
-    this.data=root.children;
+    this.data = root.children;
    // this.$set()
     console.log(root);
   },

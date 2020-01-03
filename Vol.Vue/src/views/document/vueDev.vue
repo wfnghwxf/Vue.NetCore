@@ -461,7 +461,7 @@ export default extension;</span></pre>
 export default {
   data() {
     return {
-     
+
     };
   }
 };
@@ -504,7 +504,6 @@ export default {
         padding: 2px 20px;
         text-shadow: 2px 2px 3px #635555;
     }
-
 
     #cnblogs_post_body h3 {
         background: #399ab2;
