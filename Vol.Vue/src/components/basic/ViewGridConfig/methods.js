@@ -1,13 +1,13 @@
 
-import detailMethods from './detailMethods.js'
+import detailMethods from './detailMethods.js';
 //业务处理方法,全部可以由开发覆盖
-import serviceFilter from './serviceFilter.js'
+import serviceFilter from './serviceFilter.js';
 let methods = {
     //当添加扩展组件gridHeader/gridBody/gridFooter及明细modelHeader/modelBody/modelFooter时，
     //如果要获取父级Vue对象,请使用此方法进行回调
     parentCall(fun) {
         if (typeof fun != 'function') {
-            return console.log('扩展组件需要传入一个回调方法才能获取父级Vue对象')
+            return console.log('扩展组件需要传入一个回调方法才能获取父级Vue对象');
         }
         fun(this);
     },
@@ -24,7 +24,7 @@ let methods = {
             }
         }
     },
-    getButtons() {//生成ViewGrid界面的操作按钮及更多选项
+    getButtons() { //生成ViewGrid界面的操作按钮及更多选项
         let searchIndex = this.buttons.findIndex(x => { return x.value == 'Search'; });
         //添加高级查询
         if (searchIndex != -1) {
@@ -44,13 +44,13 @@ let methods = {
         btns[this.maxBtnLength - 1].last = true;
         return btns;
     },
-    extendBtn(btns, source) {//btns权限按钮，source为扩展按钮
+    extendBtn(btns, source) { //btns权限按钮，source为扩展按钮
         if (!btns || !(source && source instanceof Array)) { return; }
         //source通过在表的扩展js文件中buttons对应按钮的属性index决定按钮所放位置
         source.forEach((x) => {
             //通过按钮的Index属性，放到指定的位置
             btns.splice(x.index == undefined ? btns.length : x.index, 0, x);
-        })
+        });
         // if (this.extend.buttons.view) {
         //     this.extend.buttons.view.forEach((x) => {
         //         //通过按钮的Index属性，放到指定的位置
@@ -85,7 +85,9 @@ let methods = {
         this.currentReadonly = !saveBtn;
         //从表表格操作按钮
         let detailGridButtons = {
-            name: "刷新", icon: "md-refresh", onClick() {
+            name: "刷新",
+            icon: "md-refresh",
+            onClick() {
                 //如果明细表当前的状态为新建时，禁止刷新
                 if (this.currentAction == this.const.ADD) {
                     return;
@@ -113,19 +115,19 @@ let methods = {
             this.editFormOptions.forEach(row => {
                 row.forEach(x => {
                     x.disabled = true;
-                })
-            })
+                });
+            });
             //没有新增编辑权限的，弹出框都设置为只读
             this.detail.columns.forEach(row => {
                 if (row.hasOwnProperty('edit')) {
                     row['edit'] = false;
                 }
-            })
+            });
             //弹出框扩展按钮
-            this.extendBtn(boxButtons, this.extend.buttons.box)
+            this.extendBtn(boxButtons, this.extend.buttons.box);
             this.detailOptions.buttons.push(detailGridButtons);
             //弹出框扩展明细表按钮
-            this.extendBtn(this.detailOptions.buttons, this.extend.buttons.detail)
+            this.extendBtn(this.detailOptions.buttons, this.extend.buttons.detail);
 
             return boxButtons;
         }
@@ -146,7 +148,6 @@ let methods = {
                     icon: "md-refresh",
                     type: "success",
                     onClick() {
-
                         this.resetEdit();
                     }
                 }
@@ -179,7 +180,6 @@ let methods = {
 
         //弹出弹框按钮
         this.boxButtons.push(...boxButtons);
-
     },
     onClick(click) {
         click.apply(this);
@@ -196,11 +196,10 @@ let methods = {
         if (
             (typeof value == "string" && value != "" && value.trim() != "") ||
             (value instanceof Array && value.length > 0)
-        )
-            return false;
+        ) { return false; }
         return true;
     },
-    getSearchParameters() {//获取查询参数
+    getSearchParameters() { //获取查询参数
         this.searchBoxShow = false;
         let query = { wheres: [] };
         for (const key in this.searchFormFileds) {
@@ -230,12 +229,12 @@ let methods = {
         }
         return query;
     },
-    search() {//查询
+    search() { //查询
         // let query = this.getSearchParameters();
         // this.$refs.table.load(query, true);
         this.$refs.table.load(null, true);
     },
-    loadTableBefore(param, callBack) {//查询前设置查询条件及分页信息
+    loadTableBefore(param, callBack) { //查询前设置查询条件及分页信息
         let query = this.getSearchParameters();
         if (query) {
             param = Object.assign(param, query);
@@ -243,11 +242,11 @@ let methods = {
         let status = this.searchBefore(param);
         callBack(status);
     },
-    loadTableAfter(data, callBack) {//查询后
+    loadTableAfter(data, callBack) { //查询后
         let status = this.searchAfter(data);
         callBack(status);
     },
-    loadDetailTableBefore(param, callBack) {//明细查询前
+    loadDetailTableBefore(param, callBack) { //明细查询前
         //新建时禁止加载明细
         if (this.currentAction == this.const.ADD) {
             callBack(false);
@@ -256,11 +255,11 @@ let methods = {
         let status = this.searchDetailBefore(param);
         callBack(status);
     },
-    loadDetailTableAfter(data, callBack) {//明细查询后
+    loadDetailTableAfter(data, callBack) { //明细查询后
         let status = this.searchDetailAfter(data);
         callBack(status);
     },
-    getSearchItem(field) {//获取查询的参数
+    getSearchItem(field) { //获取查询的参数
         let data;
         for (let index = 0; index < this.searchFormOptions.length; index++) {
             if (data) return data.type;
@@ -271,7 +270,7 @@ let methods = {
         }
         return data.type;
     },
-    resetSearch() {//重置查询对象
+    resetSearch() { //重置查询对象
         this.resetSearchForm();
     },
     resetEdit() { //重置编辑的数据
@@ -288,7 +287,7 @@ let methods = {
         this.resetEditForm(objKey);
         //重置之后
         if (!this[isEdit ? 'resetUpdateFormAfter' : 'resetAddFormAfter']()) {
-            return;
+
         }
     },
     resetSearchForm(sourceObj) {
@@ -309,8 +308,7 @@ let methods = {
                     let data;
                     if (x.type == 'switch') {
                         this.keyValueType[x.field] = 1;
-                    }
-                    else if (x.bind && x.bind.data) {
+                    } else if (x.bind && x.bind.data) {
                         data = x.bind.data;
                     } else if (x.data) {
                         if (x.data instanceof Array) {
@@ -320,13 +318,12 @@ let methods = {
                         }
                     }
                     if (data && data.length > 0 && !this.keyValueType.hasOwnProperty(x.field)) {
-
                         this.keyValueType[x.field] = data[0].key;
                     }
-                })
-            })
+                });
+            });
         } catch (error) {
-            console.log(error.message)
+            console.log(error.message);
         }
     },
     resetForm(formName, sourceObj) {
@@ -336,9 +333,7 @@ let methods = {
         }
 
         if (!sourceObj) return;
-        let form = formName == "searchForm"
-            ? this.searchFormFileds
-            : this.editFormFileds;
+        let form = formName == "searchForm" ? this.searchFormFileds : this.editFormFileds;
         //获取数据源的data类型，否则如果数据源data的key是数字，重置的值是字符串就无法绑定值
         if (!this.keyValueType._dinit) {
             this.getKeyValueType(this.searchFormOptions);
@@ -348,9 +343,9 @@ let methods = {
         for (const key in form) {
             if (sourceObj.hasOwnProperty(key)) {
                 let newVal = sourceObj[key];
-                if (this.keyValueType.hasOwnProperty(key)
-                    && typeof (this.keyValueType[key]) == 'number'
-                    && newVal * 1 == newVal) {
+                if (this.keyValueType.hasOwnProperty(key) &&
+                    typeof (this.keyValueType[key]) == 'number' &&
+                    newVal * 1 == newVal) {
                     newVal = newVal * 1;
                 } else {
                     if (newVal == null || newVal == undefined) {
@@ -368,7 +363,7 @@ let methods = {
     onBtnClick(param) {
         this[param.method](param.data);
     },
-    refresh() {//刷新
+    refresh() { //刷新
         this.search();
         // this.$refs.table.load();
     },
@@ -389,7 +384,7 @@ let methods = {
                 if (this.uploadfiled.indexOf(key) != -1 && this.editFormFileds[key] instanceof Array) {
                     let allPath = this.editFormFileds[key].map(x => {
                         return x.path;
-                    })
+                    });
                     editFormFileds[key] = allPath.join(',');
                 } else {
                     editFormFileds[key] = this.editFormFileds[key];
@@ -453,7 +448,7 @@ let methods = {
             if (this.hasDetail) {
                 this.detailOptions.delKeys = [];
                 if (resultRow.list) {
-                    this.$refs.detail.rowData.push(...resultRow.list)
+                    this.$refs.detail.rowData.push(...resultRow.list);
                 }
             }
             this.refresh();
@@ -466,8 +461,7 @@ let methods = {
         let delKeys = rows.map(x => {
             return x[this.table.key];
         });
-        if (!delKeys || delKeys.length == 0)
-            return this.$message.error("没有获取要删除的行数据!");
+        if (!delKeys || delKeys.length == 0) { return this.$message.error("没有获取要删除的行数据!"); }
         //删除前
         if (!this.delBefore(delKeys, rows)) {
             return;
@@ -509,7 +503,7 @@ let methods = {
         this.currentAction = this.const.EDIT;
         this.boxModel = true;
     },
-    linkData(row, column) {   //点击table单元格快捷链接显示编辑数据
+    linkData(row, column) { //点击table单元格快捷链接显示编辑数据
         this.currentAction = this.const.EDIT;
         this.currentRow = row;
         this.initBox();
@@ -518,14 +512,12 @@ let methods = {
         //点击编辑按钮弹出框后，可以在此处写逻辑，如，从后台获取数据
         this.modelOpenProcess(row);
     },
-    add() {//新建
+    add() { //新建
         this.currentAction = this.const.ADD;
         this.currentRow = {};
         this.initBox();
         if (this.hasDetail) {
-            this.$refs.detail &&
-                //  this.$refs.detail.rowData &&
-                this.$refs.detail.reset();
+            this.$refs.detail && this.$refs.detail.reset();
         }
         let obj = {};
         //如果有switch标签，默认都设置为是
@@ -534,8 +526,8 @@ let methods = {
                 if (item.type == 'switch') {
                     obj[item.field] = 1;
                 }
-            })
-        })
+            });
+        });
         this.resetEditForm(obj);
         //  this.resetEditForm();
         this.boxModel = true;
@@ -543,7 +535,7 @@ let methods = {
         this.modelOpenProcess();
         // this.modelOpenAfter();
     },
-    edit() {//编辑
+    edit() { //编辑
         let rows = this.$refs.table.getSelected();
         if (rows.length == 0) {
             return this.$message.error("请选择要编辑的行!");
@@ -564,8 +556,8 @@ let methods = {
     modelOpenProcess(row) {
         this.$nextTick(() => {
             this.modelOpenAfter(row);
-        })
-        return;
+        });
+
         // if (!this.$refs.form) {
         //     let timeOut = setTimeout(x => {
         //         this.modelOpenAfter(row);
@@ -588,10 +580,9 @@ let methods = {
         let elink = this.$refs.export;
         xmlResquest.responseType = "blob";
         xmlResquest.onload = function (oEvent) {
-
             if (xmlResquest.status != 200) {
                 this.$Message.error('下载文件出错了..');
-                return
+                return;
             }
             let content = xmlResquest.response;
             //  let elink = this.$refs.export;//document.createElement("a");
@@ -605,7 +596,7 @@ let methods = {
         };
         xmlResquest.send();
     },
-    export() {//导出
+    export() { //导出
         //导出
         let url = this.getUrl(this.const.EXPORT);
         let query = this.getSearchParameters();
@@ -627,16 +618,16 @@ let methods = {
             ///  window.open($http.ipAddress + path + "?fileName=" + filePath, "_self");
         });
     },
-    getSelectRows() {//获取选中的行
+    getSelectRows() { //获取选中的行
         return this.$refs.table.getSelected();
     },
-    getDetailSelectRows() {//或获取明细选中的行
+    getDetailSelectRows() { //或获取明细选中的行
         if (!this.$refs.detail) {
             return [];
         }
         return this.$refs.detail.getSelected();
     },
-    audit() {//审核弹出框
+    audit() { //审核弹出框
         let rows = this.$refs.table.getSelected();
         if (rows.length == 0) return this.$message.error("请选择要审核的行!");
         let checkStatus = rows.every(x => {
@@ -646,13 +637,11 @@ let methods = {
         this.auditParam.rows = rows.length;
         this.auditParam.model = true;
     },
-    saveAudit() {//保存审核
+    saveAudit() { //保存审核
         let rows = this.$refs.table.getSelected();
-        if (this.auditParam.status == -1)
-            return this.$message.error("请选择审核结果!");
+        if (this.auditParam.status == -1) { return this.$message.error("请选择审核结果!"); }
 
-        if (rows.length != this.auditParam.rows)
-            return this.$message.error("所选数据已发生变化,请重新选择审数据!");
+        if (rows.length != this.auditParam.rows) { return this.$message.error("所选数据已发生变化,请重新选择审数据!"); }
 
         let keys = rows.map(x => {
             return x[this.table.key];
@@ -679,7 +668,7 @@ let methods = {
             this.refresh();
         });
     },
-    openViewColumns() {//查看表结构
+    openViewColumns() { //查看表结构
         if (this.viewColumns == 0) {
             this.viewColumns.push(
                 ...[
@@ -705,10 +694,10 @@ let methods = {
         }
         this.viewModel = true;
     },
-    viewModelCancel() {//查看表结构
+    viewModelCancel() { //查看表结构
         this.viewModel = false;
     },
-    initFormOptions(formOptions, keys, setMinVal) {//初始化查询、编辑对象的下拉框数据源、图片上传链接地址
+    initFormOptions(formOptions, keys, setMinVal) { //初始化查询、编辑对象的下拉框数据源、图片上传链接地址
         //let defaultOption = { key: "", value: "请选择" };
         //有上传的字段
         formOptions.forEach(item => {
@@ -760,12 +749,13 @@ let methods = {
                 //     x.config = { valueField: '', textField: '' }
                 // }
                 if (d.data.length > 0 && !d.data[0].hasOwnProperty("key")) {
-                    let source = d.data,
-                        newSource = new Array(source.length);
+                    // eslint-disable-next-line one-var
+                    let source = d.data;
+                    let newSource = new Array(source.length);
                     for (let index = 0; index < source.length; index++) {
                         newSource[index] = {
                             //默认从字典数据读出来的key都是string类型,但如果数据从sql中查询的可能为非string,否是async-validator需要重置设置格式
-                            key: source['key'] + '',//source[index][x.config.valueField] + "",
+                            key: source['key'] + '', //source[index][x.config.valueField] + "",
                             value: source['value']//source[index][x.config.textField]
                         };
                     }
@@ -777,7 +767,7 @@ let methods = {
             });
         });
     },
-    getUrl(action, ingorPrefix) {//是否忽略前缀/  获取操作的url
+    getUrl(action, ingorPrefix) { //是否忽略前缀/  获取操作的url
         return (!ingorPrefix ? "/" : "") + "api" + this.table.url + action;
     },
     initDicKeys() { //初始化字典数据
@@ -792,10 +782,10 @@ let methods = {
                 if (x.type == "date" || x.type == "datetime") x.range = true;
             });
         });
-        //初始化datatable表数据源,默认为一个空数组,dicKeys为界面所有的数据字典编号 
+        //初始化datatable表数据源,默认为一个空数组,dicKeys为界面所有的数据字典编号
         this.initColumns(this.columns, this.dicKeys, keys);
         if (this.detailOptions && this.detailOptions.columns) {
-            this.initColumns(this.detailOptions.columns, this.dicKeys, keys)
+            this.initColumns(this.detailOptions.columns, this.dicKeys, keys);
         }
         //初始化快速查询字段
         if (this.searchFormOptions.length > 0) {
@@ -822,7 +812,7 @@ let methods = {
             if (!x.hidden && x.width) {
                 columnsWidth += x.width;
             }
-        })
+        });
         //启用第一列为固定列
         if (columnsWidth > containerWidth) {
             let firstColumn = columns.find(x => !x.hidden);
@@ -840,13 +830,13 @@ let methods = {
         if (this.boxOptions.height) {
             //如果高度与宽度超过了获取到的可见高宽度，则设为默认的90%高宽
             if (this.boxOptions.height > clientHeight * 0.8) {
-                this.boxOptions.height = clientHeight * 0.8
+                this.boxOptions.height = clientHeight * 0.8;
             }
         }
         if (this.boxOptions.width) {
             //如果高度与宽度超过了获取到的可见高宽度，则设为默认的90%高宽
             if (this.boxOptions.width > clientWidth * 0.8) {
-                this.boxOptions.width = clientWidth * 0.8
+                this.boxOptions.width = clientWidth * 0.8;
             }
         }
         //计算整个table的宽度，根据宽度决定是否启用第一行显示的列为固定列
@@ -879,7 +869,8 @@ let methods = {
             this.editFormOptions.forEach(x => {
                 if (x.length > maxColumns) maxColumns = x.length;
             });
-            let maxHeightRate = 0.7, maxWidthRate = 0.5;
+            let maxHeightRate = 0.7;
+            let maxWidthRate = 0.5;
             maxWidthRate = maxColumns / 10 + 0.3;
             maxHeightRate = (this.editFormOptions.length || 1) * 0.1 + 0.03;
             maxHeightRate = maxHeightRate > 0.9 ? 0.9 : maxHeightRate;

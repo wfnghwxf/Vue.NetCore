@@ -56,7 +56,7 @@
                     <span slot="open">是</span>
                     <span slot="close">否</span>
                   </i-switch>
-                  <!--如果是1或0请加上属性 true-value="1" false-value="0" 
+                  <!--如果是1或0请加上属性 true-value="1" false-value="0"
                如果value是字符串数字则使用 :true-value="1" :false-value="0"
                   -->
                   <Select
@@ -79,7 +79,7 @@
                     clearable
                     v-model="scope.row[column.field]"
                     :placeholder="'请输入'+column.title"
-                  ></Input>
+                  />
                 </div>
                 <div class="extra" v-if="column.extra&&edit.rowIndex==scope.$index">
                   <a
@@ -157,6 +157,7 @@
   </div>
 </template>
 <script>
+// eslint-disable-next-line no-unused-vars
 var $vue;
 export default {
   components: {},
@@ -169,6 +170,7 @@ export default {
     },
     columns: {
       type: Array,
+      // eslint-disable-next-line vue/require-valid-default-prop
       default: []
       //[ {
       //   field: "columnType",
@@ -365,7 +367,7 @@ export default {
     this.defaultLoadPage && this.load();
   },
   methods: {
-    rowClick(row, column){
+    rowClick(row, column) {
       if (!this.doubleEdit) {
         return;
       }
@@ -493,8 +495,7 @@ export default {
       this.edit.rowIndex = -1;
       if (
         !this.endEditAfter(scope.row, this.columns[scope.$index], scope.$index)
-      )
-        return;
+      ) {}
     },
     rowBeginEdit(row, column) {
       if (this.edit.rowIndex != -1) {
@@ -600,6 +601,7 @@ export default {
         this.edit.rowIndex != -1 &&
         (!this.errorFiled || this.errorFiled == column.property)
       ) {
+        // eslint-disable-next-line standard/computed-property-even-spacing
         let data = (this.url ? this.rowData : this.tableData)[
           this.edit.rowIndex
         ];
@@ -702,7 +704,7 @@ export default {
       let indexArr = this.$refs.table.selection.map(x => {
         return x.elementIdex;
       });
-      return indexArr ? indexArr : [];
+      return indexArr || [];
     },
     load(query, isResetPage) {
       //isResetPage重置分页数据
@@ -743,6 +745,7 @@ export default {
         },
         error => {
           this.loading = false;
+          console.log(error);
           // this.$Message.error(error || "网络异常");
         }
       );
@@ -870,7 +873,6 @@ export default {
 }
 </style>
 
-
 <style scoped>
 /*表头错行 .el-table th.gutter{
     display: table-cell!important;
@@ -932,4 +934,3 @@ export default {
         border: 1px solid #eee;
     } */
 </style>
-

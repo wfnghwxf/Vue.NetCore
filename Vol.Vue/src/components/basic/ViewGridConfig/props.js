@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime : 2020-01-03 10:36:43
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\components\basic\ViewGridConfig\props.js
+ */
 let props = {
   columns: {//当前表的配置信息
     type: Array,
@@ -9,7 +17,7 @@ let props = {
     type: Object,
     default: () => {
       return {
-        columns: [],//从表列
+        columns: [], //从表列
         sortName: ""//从表排序字段
       };
     }
@@ -50,6 +58,6 @@ let props = {
       return {};
     }
   }
-}
+};
 
 export default props;

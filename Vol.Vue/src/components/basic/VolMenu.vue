@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 09:27:38
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\components\basic\VolMenu.vue
+ -->
 <template>
   <div class="menu-list">
     <vol-item-menu :onOpenChange="onOpenChange" :onSelect="onSelect" :trees="arrayToTree()" :theme="theme"></vol-item-menu>
@@ -13,6 +21,7 @@ export default {
   props: {
     options: {
       type: Array,
+      // eslint-disable-next-line vue/require-valid-default-prop
       default: []
     },
     onSelect: {
@@ -27,6 +36,7 @@ export default {
         console.log(x);
       }
     },
+    // eslint-disable-next-line standard/object-curly-even-spacing
     theme: { type: String, default: "light" /*light,dark */ }
   },
   methods: {
@@ -61,6 +71,5 @@ export default {
     return {};
   }
 };
+
 </script>
-
-

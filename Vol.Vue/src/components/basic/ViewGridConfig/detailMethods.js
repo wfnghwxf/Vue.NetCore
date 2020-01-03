@@ -1,7 +1,15 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime : 2020-01-03 09:53:27
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\components\basic\ViewGridConfig\detailMethods.js
+ */
 //从表方法
 let detailMethods = {
     //查询从表前先做内部处理
-    loadInternalDetailTableBefore(param, callBack) {//加载明细表数据之前,需要设定查询的主表的ID
+    loadInternalDetailTableBefore(param, callBack) { //加载明细表数据之前,需要设定查询的主表的ID
         //每次只要加载明细表格数据就重置删除明细的值
         if (this.detailOptions.delKeys.length > 0) {
             this.detailOptions.delKeys = [];
@@ -12,12 +20,12 @@ let detailMethods = {
         }
         return this.loadDetailTableBefore(param, callBack);
     },
-    resetDetailTable(row) {//编辑和查看明细时重置从表数据
+    resetDetailTable(row) { //编辑和查看明细时重置从表数据
         if (!this.detailOptions.columns || this.detailOptions.columns.length == 0) {
             return;
         }
         let key = this.table.key;
-        let query = { value: row ? row[key] : this.currentRow[key] }
+        let query = { value: row ? row[key] : this.currentRow[key] };
         if (this.$refs.detail) {
             this.$refs.detail.reset();
             this.$refs.detail.load(query);
@@ -51,11 +59,10 @@ let detailMethods = {
                     if (x.hasOwnProperty(key) && x[key]) {
                         this.detailOptions.delKeys.push(x[key]);
                     }
-                })
-
+                });
             }
         });
     }
-}
+};
 
 export default detailMethods;
