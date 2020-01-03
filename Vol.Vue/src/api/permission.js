@@ -1,6 +1,14 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime : 2020-01-03 15:33:13
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\api\permission.js
+ */
 
-import http from '@/../src/api/http.js'
-import buttons from '@/../config/buttons.js'
+import http from '@/../src/api/http.js';
+import buttons from '@/../config/buttons.js';
 
 // let permission = {
 //     install(Vue, config) {
@@ -17,11 +25,12 @@ let permission = {
     },
     getMenu() {
         return http.get("/api/getTreeMenu");
-    }, getButtons(path, extra, table) {//extra自定额外按钮
+    },
+    getButtons(path, extra, table) { //extra自定额外按钮
         //  console.log('grid');
         //table获取指定表的权限
         if (table) {
-            table='/'+table;
+            table = '/' + table;
         }
         let permission = $vue.$store.getters.getPermission(table || path);
         if (!permission) {
@@ -40,7 +49,8 @@ let permission = {
             gridButtons.push(...extra)
         }
         return gridButtons;
-    }, to401() {
+    },
+    to401() {
         $vue.$router.push({
             path: '/401'
         });

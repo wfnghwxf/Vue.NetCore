@@ -114,7 +114,7 @@ const system = {
             getUserInfo(state);
             return state.userInfo;
         },
-    getUserName: (state) => () => {
+        getUserName: (state) => () => {
             getUserInfo(state);
             if (state.userInfo) {
                 return state.userInfo.userName;

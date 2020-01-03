@@ -51,7 +51,8 @@ export default {
         //能操作的方法methods.js/detailMethods.js
       });
     }
-  },created(){
+  },
+created() {
     console.log('header-created');
   }
 };

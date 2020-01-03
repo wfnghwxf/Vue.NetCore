@@ -1,14 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2019-12-30 11:33:42
- * @LastEditTime : 2020-01-03 11:00:35
+ * @LastEditTime : 2020-01-03 16:13:16
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Vol.Vue\src\extension\appmanager\App_Expert.js
  */
 import test from "./App_Expert/App_ExpertModelBody.vue";
 let extension = {
-    components: {//动态扩充组件或组件路径
+    components: { //动态扩充组件或组件路径
         //表单header、content、footer对应位置扩充的组件
         gridHeader: '', //{ template: "<div>扩展组xx件</div>" },
         gridBody: '',

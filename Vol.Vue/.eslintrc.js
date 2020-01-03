@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-12-30 11:33:42
- * @LastEditTime : 2020-01-03 12:29:11
+ * @LastEditTime : 2020-01-03 15:43:47
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Vol.Vue\.eslintrc.js
@@ -47,6 +47,8 @@ module.exports = {
     "semi": 0,
     "quotes": 0,
     "no-tabs": 0,
+    "no-new": 0,
+    "no-undef": 0,
     "space-before-function-paren": [
       0,
       "always"

@@ -1,21 +1,19 @@
-import axios from 'axios'
+import axios from 'axios';
 // import Vue from 'vue'
 // npm install qs
-import qs from 'qs'
+// eslint-disable-next-line no-unused-vars
+import qs from 'qs';
 
 axios.defaults.timeout = 50000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 //axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 
-
 //'application/json;charset=utf-8';//
 if (process.env.NODE_ENV == 'development') {
     axios.defaults.baseURL = 'http://127.0.0.1:9991/';
-}
-else if (process.env.NODE_ENV == 'debug') {
+} else if (process.env.NODE_ENV == 'debug') {
     axios.defaults.baseURL = 'http://127.0.0.1:8990/';
-}
-else if (process.env.NODE_ENV == 'production') {
+} else if (process.env.NODE_ENV == 'production') {
     axios.defaults.baseURL = 'http://132.232.2.109:9991/';
 }
 let ipAddress = axios.defaults.baseURL;
@@ -50,21 +48,23 @@ axios.interceptors.response.use((res) => {
     } else if (error.response.status == '404') {
         httpMessage = "没有找到请求的地址";
     } else {
-        httpMessage = '网络好像出了点问题~'
+        httpMessage = '网络好像出了点问题~';
     }
 
     redirect(error.response, httpMessage);
     return Promise.reject(error.response);
 });
 
-let $httpVue = null, currentToken = '';
-const _Authorization = 'Authorization', _Bearer = 'Bearer ';
+let $httpVue = null;
+let currentToken = '';
+const _Authorization = 'Authorization';
+const _Bearer = 'Bearer ';
 function init(vue) {
     $httpVue = vue;
 }
 let $loading;
 let loading = {
-    show(obj) {  //可选值为true,string="当前提示的文本"
+    show(obj) { //可选值为true,string="当前提示的文本"
         let text = '正在处理中.....';
         if (typeof obj == 'string') {
             text = obj;
@@ -81,7 +81,8 @@ let loading = {
     close() {
         $loading.close();
     }
-}
+};
+
 function getToken() {
     if (currentToken) {
         return _Bearer + currentToken;
@@ -110,9 +111,9 @@ function post(url, params, showLoading) {
                 reject(err.data && err.data.message ? err.data.message : '网络好像出了点问题~~');
             })
             .catch((error) => {
-                reject(error)
-            })
-    })
+                reject(error);
+            });
+    });
 }
 
  //_showLoading=true异步请求时会显示遮罩层,_showLoading=字符串，异步请求时遮罩层显示当前字符串
@@ -126,29 +127,29 @@ function get(url, param, showLoading) {
                     getNewToken(() => { get(url, param, _showLoading); });
                     return;
                 }
-                resolve(response.data)
+                resolve(response.data);
             }, err => {
                 if (err.status == 202) {
                     getNewToken(() => { get(url, param, _showLoading); });
                     return;
                 }
+                // eslint-disable-next-line no-undef
                 redirect(response.data);
-                reject(err)
+                reject(err);
             })
             .catch((error) => {
-                reject(error)
-            })
-    })
+                reject(error);
+            });
+    });
 }
-
-
-
 
 function createXHR() {
     if (XMLHttpRequest) {
         return new XMLHttpRequest();
     }
+    // eslint-disable-next-line no-undef
     if (ActiveXObject) {
+        // eslint-disable-next-line no-caller
         if (typeof arguments.callee.activeXString != "string") {
             var versions = [
                 "MSXML2.XMLHttp.6.0",
@@ -158,6 +159,7 @@ function createXHR() {
             for (var i = 0; i < versions.length; i++) {
                 try {
                     new ActiveXObject(versions[i]);
+                    // eslint-disable-next-line no-caller
                     arguments.callee.activeXString = versions[i];
                     break;
                 } catch (e) {
@@ -165,6 +167,7 @@ function createXHR() {
                 }
             }
         }
+        // eslint-disable-next-line no-caller
         return new ActiveXObject(arguments.callee.activeXString);
     }
 }
@@ -173,19 +176,19 @@ function redirect(responseText, message) {
     try {
         let responseData = typeof responseText == 'string' ? JSON.parse(responseText) : responseText;
         //  $httpVue.$message.error(responseData.message || '~服务器好像出了点问题...')
-        if ((responseData.hasOwnProperty('code') && responseData.code == 401)
-            || (responseData.data && responseData.data.code == 401)) {
+        if ((responseData.hasOwnProperty('code') && responseData.code == 401) ||
+            (responseData.data && responseData.data.code == 401)) {
             toLogin();
         } else {
             $httpVue.$message.error(message);
         }
     } catch (error) {
         console.log(error);
-        $httpVue.$message.error(responseText)
+        $httpVue.$message.error(responseText);
     }
 }
 function toLogin() {
-    currentToken="";
+    currentToken = "";
     $httpVue.$router.push({ path: '/login', params: { r: Math.random() } });
 }
 //当前token快要过期时，用现有的token换成一个新的token
@@ -213,18 +216,19 @@ function getNewToken(callBack) {
         type: "post",
         async: false
     });
-
-
 }
 
 function ajax(param) {
     let httpParam =
         Object.assign({
-            url: '', headers: {},
-            param: {}, json: true,
+            url: '',
+            headers: {},
+            param: {},
+            json: true,
             success: function () { },
             errror: function () { },
-            type: 'post', async: true
+            type: 'post',
+            async: true
         }, param);
 
     httpParam.url = axios.defaults.baseURL + httpParam.url.replace(/\/?/, '');
@@ -268,9 +272,10 @@ function ajax(param) {
 }
 
 ajax.post = function (url, param, success, errror) {
-    ajax({ url: url, param: param, success: success, error: errror, type: 'post' })
-}
+    ajax({ url: url, param: param, success: success, error: errror, type: 'post' });
+};
 ajax.get = function (url, param, success, errror) {
-    ajax({ url: url, param: param, success: success, error: errror, type: 'post' })
-}
-export default { post, get, ajax, init, ipAddress }
+    ajax({ url: url, param: param, success: success, error: errror, type: 'post' });
+};
+
+export default { post, get, ajax, init, ipAddress };

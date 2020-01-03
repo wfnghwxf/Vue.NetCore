@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 15:33:53
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\config\buttons.js
+ */
 
 let buttons = [{
     name: "查 询",
@@ -88,6 +96,6 @@ let buttons = [{
     onClick: function () {
         this.openViewColumns();
     }
-}]
+}];
 
-export default buttons
+export default buttons;

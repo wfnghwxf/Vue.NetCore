@@ -74,25 +74,32 @@ let extension = {
             //或者2、 this.$store.state.system.permission获取用户的所有权限信息
             if (this.currentReadonly) { return; }
             this.buttons.splice(2, 0, {
-                name: "设置封面", icon: 'md-create', value: 'Edit', type: 'info',
+                name: "设置封面",
+                icon: 'md-create',
+                value: 'Edit',
+                type: 'info',
                 onClick: function () { this.setCover(); }
-            })
+            });
             //添加弹出框生成静态页面的按钮
             this.boxButtons.splice(0, 0, ...[{
-                name: "生成静态页面", icon: 'ios-cart', type: 'info',
+                name: "生成静态页面",
+                icon: 'ios-cart',
+                type: 'info',
                 onClick: function () { this.publish(); }
             },
             {
-                name: "预览页面", icon: 'ios-globe', type: 'info',
+                name: "预览页面",
+                icon: 'ios-globe',
+                type: 'info',
                 onClick: function () {
-                    if (!this.currentRow
-                        || !this.currentRow.Content
-                        || !this.currentRow.DetailUrl) {
-                        return this.$Message.error("请先【保存】,再点击【生成静态页面】")
+                    if (!this.currentRow ||
+                        !this.currentRow.Content ||
+                        !this.currentRow.DetailUrl) {
+                        return this.$Message.error("请先【保存】,再点击【生成静态页面】");
                     }
                     this.preview(this.currentRow);
                 }
-            }])
+            }]);
         },
         onInit() { //初始化预览与弹出框大小
             //根据用户权限初始化按钮
@@ -105,7 +112,7 @@ let extension = {
             //设置查询表格只能单选
             this.single = true;
             //手动设置弹出框高与宽度
-            this.boxOptions.height = document.documentElement.clientHeight * 0.8
+            this.boxOptions.height = document.documentElement.clientHeight * 0.8;
             this.boxOptions.width = document.documentElement.clientWidth * 0.8;
             //设置table表格DetailUrl字段点击预览静态页面
             this.editFormOptions.forEach(x => {
@@ -114,17 +121,17 @@ let extension = {
                         //设置url点击事件
                         if (item.field == 'DetailUrl') {
                             item.title = "页面预览";
-                            item.formatter = (row) => { return '<a>预览</a>' }
+                            item.formatter = (row) => { return '<a>预览</a>'; };
                             item.click = (row, column, event) => {
                                 this.preview(row);
-                            }
+                            };
                         }
-                    })
-                })
-            })
+                    });
+                });
+            });
         },
         modelOpenAfter(row) { }, //点击编辑/新建按钮弹出框后，可以在此处写逻辑，如，从后台获取数据
-        addBefore(formData) {//新建前验证
+        addBefore(formData) { //新建前验证
             return this.validContent(formData);
         },
         updateBefore(formData) { //修改前验证
@@ -140,16 +147,16 @@ let extension = {
         },
         preview(row) { //预览html页面
             if (!row.DetailUrl || row.DetailUrl.indexOf('.html') == -1 || !this.base.isUrl(this.http.ipAddress + row.DetailUrl)) {
-                return this.$Message.error("请先发布静态页面")
+                return this.$Message.error("请先发布静态页面");
             }
             window.open(this.http.ipAddress + row.DetailUrl);
         },
         publish() { //生成静态页面
             if (!this.currentRow || !this.currentRow[this.table.key]) {
-                return this.$Message.error("请先保存数据")
+                return this.$Message.error("请先保存数据");
             }
             if (!this.currentRow.Content) {
-                return this.$Message.error("请编辑要发布的内容")
+                return this.$Message.error("请编辑要发布的内容");
             }
             this.http.post("api/news/createPage", this.currentRow).then(x => {
                 if (x.status) {
@@ -157,21 +164,22 @@ let extension = {
                     this.currentRow.DetailUrl = x.data.url;
                 }
                 this.refresh();
-                return this.$Message.info(x.message)
-            })
+                return this.$Message.info(x.message);
+            });
         },
-        setCover() {  //设置封面图片
+        setCover() { //设置封面图片
             let rows = this.getSelectRows();
             if (rows.length == 0) {
-                return this.$Message.error("请选中要设置封面的行")
+                return this.$Message.error("请选中要设置封面的行");
             }
             this.$refs.gridHeader.fileInfo = this.getFilePath(rows[0].ImageUrl) || [];
             this.$refs.gridHeader.model = true;
         },
-        getFilePath(pathSring) {//拆分url并初始化图片到上传组件中
+        getFilePath(pathSring) { //拆分url并初始化图片到上传组件中
             //获取表的图片与文件显示
             if (!pathSring) return "";
-            let fileInfo = [], filePath = pathSring.replace(/\\/g, "/").split(",");
+            let fileInfo = [];
+            let filePath = pathSring.replace(/\\/g, "/").split(",");
             for (let index = 0; index < filePath.length; index++) {
                 let file = filePath[index];
                 if (file.indexOf(".") == -1) { continue; }
@@ -186,4 +194,5 @@ let extension = {
         }
     }
 };
+
 export default extension;

@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 14:11:41
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\extension\order\SellOrderComponents\GridBodyExtend.vue
+ -->
 <template>
   <div>
     <Alert type="info">
@@ -18,6 +26,7 @@ export default {
   methods: {
     test() {
       this.$emit("parentCall", $vue => {
+        // eslint-disable-next-line no-unused-vars
         let rows = $vue.$refs.table.rowData;
         //此于拿到的$vue你可以操作其中的任何对象，如:
         //props.js中的属性，this.columns/this.editFormFileds
