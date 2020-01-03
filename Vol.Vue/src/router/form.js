@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 10:49:03
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\router\form.js
+ */
 let form = [
     {
         path: '/form1',
@@ -55,6 +63,6 @@ let form = [
         name: 'htmlList',
         component: () => import('@/views/kindEditor/htmlList.vue')
     }
+];
 
-]
-export default form
+export default form;

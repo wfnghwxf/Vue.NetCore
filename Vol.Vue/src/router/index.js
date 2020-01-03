@@ -1,19 +1,26 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import store from '@/store'
-
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime : 2020-01-03 10:47:57
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\router\index.js
+ */
+import Vue from 'vue';
+import Router from 'vue-router';
+import store from '@/store';
 
 // import exampleRouter from './router/examplxe.js'
-import exampleRouter from './example'
-import redirect from './redirect'
-import viewgird from './viewGird'
-import h5 from './h5'
-import form from './form'
-import formsMulti from './formsMulti'
-import charts from './charts'
-import tables from './tables'
-import documents from './documents'
-Vue.use(Router)
+import exampleRouter from './example';
+import redirect from './redirect';
+import viewgird from './viewGird';
+import h5 from './h5';
+import form from './form';
+import formsMulti from './formsMulti';
+import charts from './charts';
+import tables from './tables';
+import documents from './documents';
+Vue.use(Router);
 
 const router = new Router({
   mode: 'history',
@@ -31,11 +38,11 @@ const router = new Router({
       component: () => import('@/views/Index'),
       redirect: '/home',
       children: [
-        ...viewgird,//代码生成的后配置菜单的路由
-        ...redirect,//401,404,500等路由
-        ...form,//Demo表单路由
-        ...formsMulti,//Demo一对多表单路由
-        ...charts,//Demo图表单路由
+        ...viewgird, //代码生成的后配置菜单的路由
+        ...redirect, //401,404,500等路由
+        ...form, //Demo表单路由
+        ...formsMulti, //Demo一对多表单路由
+        ...charts, //Demo图表单路由
         ...tables,
         {
           path: '/home',
@@ -49,8 +56,8 @@ const router = new Router({
           path: '/coder',
           name: 'coder',
           component: () => import('@/views/builder/coder.vue')
-        }
-        , {
+        },
+         {
           path: '/sysMenu',
           name: 'sysMenu',
           component: () => import('@/views/system/Sys_Menu.vue')
@@ -71,11 +78,10 @@ const router = new Router({
     }
 
   ]
-})
-
+});
 
 router.beforeEach((to, from, next) => {
-  store.getters.getUserInfo()
+  store.getters.getUserInfo();
   if (to.matched.length == 0) return next({ path: '/404' });
 
   if ((to.hasOwnProperty('meta') && to.meta.anonymous) || store.getters.isLogin()) {
@@ -83,7 +89,7 @@ router.beforeEach((to, from, next) => {
   }
   //query产生一个随机数在 login->home->login执行不了
   next({ path: '/login', query: { redirect: Math.random() } });
-})
+});
 
 router.onError((error) => {
   const pattern = /Loading chunk (\d)+ failed/g;

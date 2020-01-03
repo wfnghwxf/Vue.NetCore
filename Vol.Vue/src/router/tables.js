@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 10:46:16
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\router\tables.js
+ */
 let tables = [
     {
         path: '/table1',
@@ -13,5 +21,6 @@ let tables = [
         path: '/tableForms',
         name: 'tableForms',
         component: () => import('@/views/tables/tableForms.vue')
-    }]
+    }];
+
 export default tables;

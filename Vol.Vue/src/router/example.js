@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 10:49:16
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\router\example.js
+ */
 let exampleRouter = [{
   path: '/store',
   name: 'store',
@@ -14,5 +22,6 @@ let exampleRouter = [{
   path: '/tree',
   name: 'tree',
   component: () => import('@/views/example/tree.vue')
-}]
+}];
+
 export default exampleRouter;

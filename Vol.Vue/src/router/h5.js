@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-30 11:33:42
+ * @LastEditTime: 2020-01-03 10:48:30
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Vol.Vue\src\router\h5.js
+ */
 let h5 = [{
   path: '/app',
   name: 'app',
@@ -13,7 +21,7 @@ let h5 = [{
       meta: {
         anonymous: true
       },
-      component: () => import('@/views/h5/home.vue'),
+      component: () => import('@/views/h5/home.vue')
     },
     {
       path: '/app/topic',
@@ -47,5 +55,6 @@ let h5 = [{
     anonymous: true
   },
   component: () => import('@/views/h5/guide.vue')
-}]
+}];
+
 export default h5;
