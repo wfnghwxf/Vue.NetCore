@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-12-30 11:33:42
- * @LastEditTime : 2020-01-03 12:08:54
+ * @LastEditTime : 2020-01-03 12:29:11
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Vol.Vue\.eslintrc.js
@@ -57,8 +57,7 @@ module.exports = {
       "never"
     ],
     "no-unused-vars": [
-      2,
-      {
+      2,{
         "vars": "local",
         "args": "none"
       }
